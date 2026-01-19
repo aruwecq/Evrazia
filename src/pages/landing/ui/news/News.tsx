@@ -8,10 +8,9 @@ const News = () => {
 
 
 
-            {/* CARDS */}
+
             <div className="flex mt-10 gap-6">
 
-                {/* CARD 1 */}
                 <div className="relative w-1/2 h-[406px] rounded-xl overflow-hidden">
                     <img
                         src={news1}
