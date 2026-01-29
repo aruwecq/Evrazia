@@ -5,7 +5,7 @@ import { Home } from "../pages/landing/ui/Home";
 import  NewsPages  from "../pages/landing/pages/news/NewsPages"
 import  Banner  from "../pages/landing/ui/banner/Banner";
 import Cafe from "../pages/landing/pages/cafe/Cafe";
-
+import Events from "../pages/landing/pages/events/Events";
 export const myRouter = createBrowserRouter([
   {
     path: "/",
@@ -26,6 +26,10 @@ export const myRouter = createBrowserRouter([
         {
           path: "/cafe",
           element: <Cafe/>
+        },
+        {
+          path: "/events",
+          element: <Events/>
         }
     ],
   },

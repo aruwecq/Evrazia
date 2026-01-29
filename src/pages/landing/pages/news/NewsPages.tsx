@@ -8,9 +8,8 @@ import img4 from '../../img/Image (3).png';
 import img5 from '../../img/Image (4).png';
 import img6 from '../../img/Image (5).png';
 // ikonlar
-import icons1 from '../../img/icons8-вконтакте-144 2.svg'
-import icons2 from '../../img/icons8-ютуб-100 2.svg'
-import icons3 from '../../img/icons8-yandex-zen-100 2.svg'
+import Icons from '../../ui/icons/Icons';
+
 
 function NewsPages() {
     const newsData = [
@@ -59,12 +58,6 @@ function NewsPages() {
         },
     ];
 
-    const socialIcons = [
-        { icon: icons1, link: 'https://vk.com', alt: 'VK' },
-        { icon: icons2, link: 'https://youtube.com', alt: 'YouTube' },
-        { icon: icons3, link: 'https://zen.yandex.ru', alt: 'Yandex Zen' },
-    ];
-
     return (
         <div className="max-w-7xl mx-auto px-6 mt-10 mb-20">
             <div className="mb-20">
@@ -110,24 +103,7 @@ function NewsPages() {
                 ))}
             </div>
 
-            {/* SOCIAL ICONS SECTION - Eng pastki qism */}
-            <div className="flex justify-center items-center gap-4 py-10 border-t border-gray-100">
-                {socialIcons.map((item, index) => (
-                    <a
-                        key={index}
-                        href={item.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-12 h-12 bg-[#20B2FF] rounded-full flex items-center justify-center transition-transform hover:scale-110 active:scale-95 shadow-md"
-                    >
-                        <img
-                            src={item.icon}
-                            alt={item.alt}
-                            className="w-6 h-6 object-contain brightness-0 invert"
-                        />
-                    </a>
-                ))}
-            </div>
+            <Icons />
         </div>
     );
 }
