@@ -14,9 +14,10 @@ function Header() {
 
 
         <div className="flex   gap-16 font-medium  text-gray-700">
-          <Link to="/resorts" className="hover:text-blue-600 transition">
-            Курорт
-          </Link>
+       <Link to="/resorts" className="hover:text-blue-600 transition">
+  Курорт
+</Link>
+
           <Link to="/accommodations" className="hover:text-blue-600 transition">
             Проживание
           </Link>

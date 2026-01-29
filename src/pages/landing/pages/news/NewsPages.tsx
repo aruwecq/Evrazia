@@ -1,13 +1,12 @@
 import { Link } from 'react-router-dom';
 import Banner from '../../ui/banner/Banner';
-// rasmlar
+
 import img1 from '../../img/Image.png';
 import img2 from '../../img/Image (1).png';
 import img3 from '../../img/Image (2).png';
 import img4 from '../../img/Image (3).png';
 import img5 from '../../img/Image (4).png';
 import img6 from '../../img/Image (5).png';
-// ikonlar
 import icons1 from '../../img/icons8-вконтакте-144 2.svg'
 import icons2 from '../../img/icons8-ютуб-100 2.svg'
 import icons3 from '../../img/icons8-yandex-zen-100 2.svg'

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import banner1 from '../../img/image.png';
 import banner2 from '../../img/image.png';
 import banner3 from '../../img/image.png';
-import banner4 from '../../img/image.png'; // 4-rasmni ham import qiling
+import banner4 from '../../img/image.png'; 
 import icons1 from '../../img/icons1.svg';
 import icons2 from '../../img/icons2.svg';
 import icons3 from '../../img/icons3.svg';
