@@ -41,6 +41,8 @@ function Footer() {
                                     <li><Link to="/rent" className="hover:text-blue-600">Прокат</Link></li>
                                     <li><Link to="/actions" className="hover:text-blue-600">Акции и туры</Link></li>
                                     <li><Link to="/price-list" className="hover:text-blue-600">Цены на услуги</Link></li>
+                                    <li><Link to="/documentss" className="hover:text-blue-600">Документы </Link></li>
+
                                 </ul>
                             </div>
 
