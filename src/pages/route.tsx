@@ -1,6 +1,7 @@
 import { Layout } from "../widgets/Layout/Layout";
 import Cafe from "./landing/pages/cafe/Cafe";
 import NewsPages from "./landing/pages/news/NewsPages";
+import { Contact } from "./landing/ui/contact/Contact";
 import { Kurort1 } from "./landing/ui/kurort1/Kurort1";
 export const Router = {    
         path: "",
@@ -17,6 +18,10 @@ export const Router = {
                {
           path: "/resorts",
           element: <Kurort1/>
+        },
+                  {
+          path: "/contact",
+          element: <Contact/>
         }
         ]
     } 
