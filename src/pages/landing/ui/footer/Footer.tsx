@@ -29,6 +29,7 @@ function Footer() {
                                     <li><Link to="/cafe" className="hover:text-blue-600">Кафе</Link></li>
                                     <li><Link to="/hotel" className="hover:text-blue-600">Гостиница</Link></li>
                                     <li><Link to="/about" className="hover:text-blue-600">О комплексе</Link></li>
+                                    <li><Link to="/vacansi" className="hover:text-blue-600">Вакансии</Link></li>
                                 </ul>
                             </div>
 
@@ -40,6 +41,8 @@ function Footer() {
                                     <li><Link to="/rent" className="hover:text-blue-600">Прокат</Link></li>
                                     <li><Link to="/actions" className="hover:text-blue-600">Акции и туры</Link></li>
                                     <li><Link to="/price-list" className="hover:text-blue-600">Цены на услуги</Link></li>
+                                    <li><Link to="/documentss" className="hover:text-blue-600">Документы </Link></li>
+
                                 </ul>
                             </div>
 
