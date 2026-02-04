@@ -37,7 +37,7 @@ function Footer() {
                             <div>
                                 <ul className="space-y-2 text-sm">
                                     <li><Link to="/news" className="hover:text-blue-600">Новости</Link></li>
-                                    <li><Link to="/prices" className="hover:text-blue-600">Тарифы</Link></li>
+                                    <li><Link to="/tarif" className="hover:text-blue-600">Тарифы</Link></li>
                                     <li><Link to="/rent" className="hover:text-blue-600">Прокат</Link></li>
                                     <li><Link to="/actions" className="hover:text-blue-600">Акции и туры</Link></li>
                                     <li><Link to="/price-list" className="hover:text-blue-600">Цены на услуги</Link></li>
