@@ -12,7 +12,8 @@ export const Router = {
         {
           path: "/cafe",
           element: <Cafe/>
-        }
+        },
+        
         ]
 
 
