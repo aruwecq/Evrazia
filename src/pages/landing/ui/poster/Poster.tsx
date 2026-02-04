@@ -1,5 +1,5 @@
-import post1 from '../../img/Mask group.png'
-import post2 from '../../img/Mask group (1).png'
+import post1 from '../../img/Mask group (2).png'
+import post2 from '../../img/Mask group (3).png'
 import { Link } from 'react-router-dom'
 
 function Poster() {

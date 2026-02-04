@@ -18,6 +18,7 @@ export const Router = {
           path: "/cafe",
           element: <Cafe/>
         },
+        
                {
           path: "/resorts",
           element: <Kurort1/>
