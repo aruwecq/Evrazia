@@ -38,16 +38,13 @@ export function Tarif() {
     },
   ];
 
+  // 2. Выходной күн үчүн маалыматтар
   const weekendData = [
     {
       name: "Комплект (горные лыжи, сноуборд, ботинки, палки)",
       category: [
         { age: "Дети до 14 лет", prices: ["400", "450", "500", "550", "600"] },
         { age: "Взрослые", prices: ["700", "800", "900", "1000", "1200"] },
-        { 
-          age: "Вечерний блок, суббота: прокат + подъемник с 17.00 и 18.00 до 21.00", 
-          prices: ["•", "•", "1500", "1800", "•"] 
-        },
       ],
       isSpecial: false,
     },
@@ -75,10 +72,6 @@ export function Tarif() {
       category: [
         { age: "Дети до 14 лет", prices: ["500", "600", "700", "800", "900"] },
         { age: "Взрослые", prices: ["900", "1000", "1200", "1300", "1500"] },
-        { 
-          age: "Вечерний блок, суббота: прокат + подъемник с 17.00 и 18.00 до 21.00", 
-          prices: ["•", "•", "1700", "2000", "•"] 
-        },
       ],
       isSpecial: false,
     },
@@ -132,23 +125,27 @@ export function Tarif() {
               {item.category.map((cat, catIdx) => (
                 <tr 
                   key={`${idx}-${catIdx}`}
-                  className={`${item.isSpecial ? 'bg-[#89CFF0]' : (catIdx % 2 === 0 ? 'bg-[#F8F9FA]' : 'bg-white')} transition-colors border-b border-white`}
+                  className={`
+                    ${item.isSpecial ? 'bg-[#89CFF0]' : (idx % 2 === 0 ? 'bg-[#F8F9FA]' : 'bg-white')} 
+                    transition-colors 
+                    ${catIdx === item.category.length - 1 ? 'border-b border-white' : ''}
+                  `}
                 >
-                  <td className="p-4 align-middle">
-                    {catIdx === 0 && (
+                  {catIdx === 0 && (
+                    <td className="p-4 align-middle" rowSpan={item.category.length}>
                       <div className="flex items-center gap-4">
                         <div className={`w-12 h-12 rounded-full flex-shrink-0 ${item.isSpecial ? 'bg-white' : 'bg-[#ADD8E6]'}`}></div>
                         <span className={`text-[14px] font-bold leading-tight ${item.isSpecial ? 'text-gray-900' : 'text-gray-700'}`}>
                           {item.name}
                         </span>
                       </div>
-                    )}
-                  </td>
-                  <td className={`p-4 text-[13px] font-semibold leading-tight ${item.isSpecial ? 'text-gray-900' : 'text-gray-600'}`}>
+                    </td>
+                  )}
+                  <td className={`px-4 py-2 text-[13px] font-semibold align-middle ${item.isSpecial ? 'text-gray-900' : 'text-gray-600'}`}>
                     {cat.age}
                   </td>
                   {cat.prices.map((price, pIdx) => (
-                    <td key={pIdx} className={`p-4 text-center text-[16px] font-bold ${item.isSpecial ? 'text-gray-900' : 'text-gray-700'}`}>
+                    <td key={pIdx} className={`px-4 py-2 text-center text-[16px] font-bold align-middle ${item.isSpecial ? 'text-gray-900' : 'text-gray-700'}`}>
                       {price}
                     </td>
                   ))}
@@ -169,7 +166,7 @@ export function Tarif() {
 
       <div className="mb-12">
         <h1 className="text-[#009EE3] text-6xl font-black mb-10 italic uppercase tracking-tighter text-left">
-          Сезон 2022/2023
+          Сезон 2025/2026
         </h1>
         <div className="text-center space-y-3 mb-12">
           <p className="text-[#009EE3] text-[22px] font-bold">
@@ -181,7 +178,8 @@ export function Tarif() {
         </div>
       </div>
 
-      <h2 className="text-[#009EE3] text-3xl font-black mb-8 uppercase italic text-left">Стоимость проката в будний день</h2>
+      {/* Таблицалар */}
+      <h2 className="text-[#009EE3] text-[28px] font-extrabold mb-6 uppercase tracking-tight text-left">СТОИМОСТЬ ПРОКАТА В БУДНИЙ ДЕНЬ</h2>
       {renderTable(weekdayData)}
 
       <h2 className="text-[#009EE3] text-3xl font-black mb-8 uppercase italic text-left">Стоимость проката в выходной день</h2>
@@ -190,89 +188,113 @@ export function Tarif() {
       <h2 className="text-[#009EE3] text-3xl font-black mb-8 uppercase italic text-left">Стоимость проката в праздничные дни</h2>
       {renderTable(holidayData)}
 
-      <h2 className="text-[#009EE3] text-3xl font-black mb-8 uppercase italic text-left">Стоимость проката ватрушек (тюбинг).</h2>
-      <div className="overflow-x-auto mb-20">
-        <table className="w-full text-left border-collapse">
-          <thead>
-            <tr className="text-gray-400 text-[12px] uppercase border-b border-gray-100">
-              <th className="py-4 font-normal w-[30%]">Наименование</th>
-              <th className="py-4 font-normal w-[20%]">Дни</th>
-              <th className="py-4 font-normal text-center">1 час</th>
-              <th className="py-4 font-normal text-center">2 часа</th>
-              <th className="py-4 font-normal text-center">3 часа</th>
-              <th className="py-4 font-normal text-center">день</th>
-            </tr>
-          </thead>
-          <tbody>
-            {tubingData.map((row, idx) => (
-              <tr key={idx} className="bg-[#F8F9FA] border-b border-white">
-                <td className="p-4 align-middle">
-                  {idx === 0 && (
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-full bg-[#ADD8E6]"></div>
-                      <span className="text-[14px] font-bold text-gray-700">Ватрушка (тюбинг)</span>
-                    </div>
-                  )}
-                </td>
-                <td className="p-4 text-[13px] font-semibold text-gray-600">{row.day}</td>
-                {row.prices.map((price, pIdx) => (
-                  <td key={pIdx} className="p-4 text-center text-[16px] font-bold text-gray-700">{price}</td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      {/* Тюбинг таблицасы */}
+   <h2 className="text-[#009EE3] text-3xl font-black mb-8 uppercase italic text-left">
+  Стоимость проката ватрушек (тюбинг).
+</h2>
+<div className="overflow-x-auto mb-20">
+  <table className="w-full text-left border-collapse">
+    <thead>
+      <tr className="text-gray-400 text-[11px] uppercase border-b border-gray-100">
+        <th className="py-4 px-4 font-normal w-[30%]">Наименование</th>
+        <th className="py-4 px-4 font-normal w-[20%]">Дни</th>
+        <th className="py-4 font-normal text-center">1 час</th>
+        <th className="py-4 font-normal text-center">2 часа</th>
+        <th className="py-4 font-normal text-center">3 часа</th>
+        <th className="py-4 font-normal text-center">день</th>
+      </tr>
+    </thead>
+    <tbody className="bg-[#F8F9FA]">
+      {tubingData.map((row, idx) => (
+        <tr key={idx}>
+          {idx === 0 && (
+            <td 
+              className="p-4 align-middle border-b border-white" 
+              rowSpan={tubingData.length}
+            >
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-[#ADD8E6] flex-shrink-0"></div>
+                <span className="text-[14px] font-bold text-gray-700 leading-tight">
+                  Ватрушка (тюбинг)
+                </span>
+              </div>
+            </td>
+          )}
+          
+          <td className="px-4 py-2 text-[13px] font-semibold text-gray-600 align-middle border-b border-white">
+            {row.day}
+          </td>
+          
+          {row.prices.map((price, pIdx) => (
+            <td 
+              key={pIdx} 
+              className="px-4 py-2 text-center text-[16px] font-bold text-gray-700 align-middle border-b border-white"
+            >
+              {price}
+            </td>
+          ))}
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
 
-      <h2 className="text-[#009EE3] text-3xl font-black mb-8 uppercase italic text-left">График работы горнолыжных трасс и службы проката снаряжения</h2>
-      <div className="overflow-x-auto mb-20">
-        <table className="w-full text-left border-collapse">
-          <thead>
-            <tr className="text-gray-400 text-[11px] uppercase border-b border-gray-100">
-              <th className="py-4 font-normal w-[25%]">День недели</th>
-              <th className="py-4 font-normal text-center leading-tight">График работы трасс без освещения</th>
-              <th className="py-4 font-normal text-center leading-tight">График работы трасс с освещением №1 и №2</th>
-              <th className="py-4 font-normal text-center leading-tight">График работы учебного склона</th>
-              <th className="py-4 font-normal text-center leading-tight">График работы службы проката и сервиса снаряжения</th>
-            </tr>
-          </thead>
-          <tbody>
-            {scheduleData.map((row, idx) => (
-              <tr key={idx} className="bg-[#F8F9FA] border-b border-white">
-                <td className="p-4 align-middle">
-                  <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-full bg-[#ADD8E6]"></div>
-                    <span className="text-[14px] font-bold text-gray-700">{row.day}</span>
-                  </div>
-                </td>
-                {row.times.map((time, tIdx) => (
-                  <td key={tIdx} className="p-4 text-center text-[14px] font-semibold text-gray-600">{time}</td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+<h2 className="text-[#009EE3] text-3xl font-black mb-8 uppercase italic text-left">
+  График работы горнолыжных трасс и службы проката снаряжения
+</h2>
+<div className="overflow-x-auto mb-20">
+  <table className="w-full text-left border-collapse">
+    <thead>
+      <tr className="text-gray-400 text-[11px] uppercase border-b border-gray-100">
+        <th className="py-4 font-normal w-[25%] px-4">День недели</th>
+        <th className="py-4 font-normal text-center leading-tight">График работы трасс без освещения</th>
+        <th className="py-4 font-normal text-center leading-tight">График работы трасс с освещением №1 и №2</th>
+        <th className="py-4 font-normal text-center leading-tight">График работы учебного склона</th>
+        <th className="py-4 font-normal text-center leading-tight">График работы службы проката и сервиса снаряжения</th>
+      </tr>
+    </thead>
+    <tbody>
+      {scheduleData.map((row, idx) => (
+        <tr 
+          key={idx} 
+          className={`${idx % 2 === 0 ? 'bg-[#F8F9FA]' : 'bg-white'} border-b border-white`}
+        >
+          <td className="p-4 align-middle">
+            <div className="flex items-center gap-4">
+              <div className="w-10 h-10 rounded-full bg-[#ADD8E6] flex-shrink-0"></div>
+              <span className="text-[14px] font-bold text-gray-700">{row.day}</span>
+            </div>
+          </td>
+          {row.times.map((time, tIdx) => (
+            <td 
+              key={tIdx} 
+              className="p-4 text-center text-[14px] font-semibold text-gray-600 align-middle"
+            >
+              {time}
+            </td>
+          ))}
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
 
       <div className="mt-10 mb-20">
-        <h2 className="text-[#009EE3] text-4xl font-black mb-10 italic uppercase">Акции</h2>
+        <h2 className="text-[#009EE3] text-4xl font-black mb-10 italic uppercase text-left">Акции</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          
           <div className="relative rounded-[2.5rem] overflow-hidden h-[450px] shadow-lg group">
             <img src={evro} alt="Евробус" className="absolute inset-0 w-full h-full object-cover" />
-            <div className="relative p-12 flex flex-col h-full text-white bg-black/10">
+            <div className="relative p-12 flex flex-col h-full text-white bg-black/10 text-left">
               <h3 className="text-5xl font-black mb-4">Евробус - экспресс</h3>
               <p className="text-2xl font-bold uppercase">Челябинск-Куса</p>
               <p className="text-xl mt-1 opacity-90 italic">за 3 часа</p>
-              <button className="mt-auto bg-[#009EE3] text-white py-4 px-12 rounded-2xl self-start font-bold text-lg">
-                Заказать
-              </button>
+              <button className="mt-auto bg-[#009EE3] text-white py-4 px-12 rounded-2xl self-start font-bold text-lg">Заказать</button>
             </div>
           </div>
 
           <div className="relative rounded-[2.5rem] overflow-hidden h-[450px] shadow-lg group">
             <img src={sne} alt="Снежные будни" className="absolute inset-0 w-full h-full object-cover" />
-            <div className="relative p-12 flex flex-col h-full text-white bg-black/5">
+            <div className="relative p-12 flex flex-col h-full text-white bg-black/5 text-left">
               <h3 className="text-5xl font-black mb-4">Снежные будни</h3>
               <p className="text-lg font-black uppercase">Прокат снаряжения +</p>
               <p className="text-lg font-black uppercase mb-4">Кресельный подъемник</p>
@@ -283,10 +305,8 @@ export function Tarif() {
                 <span className="text-7xl font-black ml-6">4</span>
                 <span className="text-2xl font-bold">часа</span>
               </div>
-              <p className="text-[12px] opacity-80 mb-6 font-bold">*За исключением праздничных дней</p>
-              <button className="mt-auto bg-[#009EE3] text-white py-4 px-12 rounded-2xl self-start font-bold text-lg">
-                Заказать
-              </button>
+              <p className="text-[12px] opacity-90 mb-6 font-bold">*За исключением праздничных дней</p>
+              <button className="mt-auto bg-[#009EE3] text-white py-4 px-12 rounded-2xl self-start font-bold text-lg">Заказать</button>
             </div>
           </div>
         </div>
@@ -303,7 +323,6 @@ export function Tarif() {
           </a>
         </div>
       </div>
-
     </div>
   );
 }
