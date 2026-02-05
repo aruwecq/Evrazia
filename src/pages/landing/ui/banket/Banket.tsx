@@ -378,4 +378,5 @@ export function Banket() {
         `}} />
       </div>
     );
+    
 }
