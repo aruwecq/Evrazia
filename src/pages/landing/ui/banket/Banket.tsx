@@ -338,7 +338,7 @@ export function Banket() {
               >
                 &times;
               </button>
-              
+
               <h3 className="text-[#1A202C] text-3xl font-bold mb-2">{selectedMenu.title}</h3>
               <p className="text-[#009EE3] font-bold text-lg mb-6">{selectedMenu.price}</p>
               
@@ -357,7 +357,6 @@ export function Banket() {
             </div>
           </div>
         )}
-
         <style dangerouslySetInnerHTML={{ __html: `
           @keyframes scrollInfinite {
             0% { transform: translateX(0); }
