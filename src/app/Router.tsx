@@ -9,6 +9,7 @@ import Catalog from "../pages/landing/pages/catalog/Catalog.tsx";
 import Hotel from "../pages/landing/pages/Hotel/Hotel.tsx";
 import Guest from "../pages/landing/pages/Hotel/Guest.tsx";
 import Hotel2 from "../pages/landing/pages/Hotel/Hotel2.tsx";
+import Accommodation from "../pages/landing/pages/accommodation/Accommodation.tsx";
 
 const LayoutWithScroll = () => (
   <>
@@ -16,44 +17,47 @@ const LayoutWithScroll = () => (
     <Layout />
   </>
 );
-
 export const myRouter = createBrowserRouter([
   {
     path: "/",
-    element: <LayoutWithScroll />, 
+    element: <LayoutWithScroll />,
     children: [
-        {
-          path: "/",
-          element: <Home/>,
-        },
-        {
-          path: "/banner",
-          element: <Banner/>
-        },
-        {
-          path: "/events",
-          element: <Events/>
-        },
-        {
-          path: "/ski",
-          element: <Ski/>
-        },
-        {
-
-          path: "/catalog",
-          element: <Catalog/>
-        },
-          path: "/hotel",
-          element: <Hotel/>
-        },
-        {
-          path: "/hotel/rooms",
-          element: <Guest/>
-        },
-        {
-          path: "/hotel/booking",
-          element: <Hotel2/>
-        }
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/banner",
+        element: <Banner />,
+      },
+      {
+        path: "/events",
+        element: <Events />,
+      },
+      {
+        path: "/ski",
+        element: <Ski />,
+      },
+      {
+        path: "/catalog",
+        element: <Catalog />,
+      },
+      {
+        path: "/hotel",
+        element: <Hotel />,
+      },
+      {
+        path: "/hotel/rooms",
+        element: <Guest />,
+      },
+      {
+        path: "/hotel/booking",
+        element: <Hotel2 />,
+      },
+      {
+        path: "/accommodation",
+        element: <Accommodation />,
+      },
     ],
   },
 ]);
