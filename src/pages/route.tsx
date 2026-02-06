@@ -6,6 +6,7 @@ import { Contact } from "./landing/ui/contact/Contact";
 import { Documentss } from "./landing/ui/documentss/Documentss";
 import { Kurort1 } from "./landing/ui/kurort1/Kurort1";
 import { Tarif } from "./landing/ui/tarif/Tarif";
+import { Trassa } from "./landing/ui/trassa/Trassa";
 import { Vacansi } from "./landing/ui/vacansi/Vacansi";
 export const Router = {    
         path: "",
@@ -43,6 +44,10 @@ export const Router = {
                                   {
           path: "/business",
           element: <Banket/>
+        },
+                                      {
+          path: "/tracks",
+          element: <Trassa/>
         }
         ]
     } 
