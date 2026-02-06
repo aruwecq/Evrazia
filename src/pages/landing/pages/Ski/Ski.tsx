@@ -248,7 +248,7 @@ function Ski() {
         {/* Aksiyalar bo'limi boshlanishi */}
         <div className="mt-20">
           <div className="mb-10">
-            <h2 className='text-4xl font-bold text-[#0093DD] uppercase tracking-tight'>
+            <h2 className='text-4xl font-bold text-[#0093DD]  uppercase tracking-tight'>
               Акции
             </h2>
             <div className="w-16 h-1 bg-[#0093DD] mt-2"></div>

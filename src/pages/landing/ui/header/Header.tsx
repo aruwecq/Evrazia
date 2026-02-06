@@ -17,7 +17,7 @@ function Header() {
           <Link to="/resorts" className="hover:text-blue-600 transition">
             Курорт
           </Link>
-          <Link to="/accommodations" className="hover:text-blue-600 transition">
+          <Link to="/hotel" className="hover:text-blue-600 transition">
             Проживание
           </Link>
           <Link to="/services" className="hover:text-blue-600 transition">
