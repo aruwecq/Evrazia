@@ -27,7 +27,7 @@ function Header() {
             Афиша
           </Link>
           <Link to="/business" className="hover:text-blue-600 transition">
-            Для бизнеса
+            Мероприатие
           </Link>
           <Link to="/buy-online" className="hover:text-blue-600 transition">
             Купить онлайн
