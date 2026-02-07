@@ -7,9 +7,15 @@ import Ski from "../pages/landing/pages/Ski/Ski.tsx";
 import Banner from "../pages/landing/ui/banner/Banner";
 import Events from "../pages/landing/pages/events/Events";
 import Catalog from "../pages/landing/pages/catalog/Catalog.tsx";
+import Hotel from "../pages/landing/pages/Hotel/Hotel.tsx";
+import Guest from "../pages/landing/pages/Hotel/Guest.tsx";
+import Hotel2 from "../pages/landing/pages/Hotel/Hotel2.tsx";
+import { Slujba } from "../pages/landing/ui/slujba/Slujba.tsx";
+
 import { adminRoutes } from "../features/admin/adminRoutes.tsx";
 import { SignUp } from "../features/auth/ui/signUp/SignUp.tsx";
 import { SignIn } from "../features/auth/ui/signIn/SignIn.tsx";
+        
 const LayoutWithScroll = () => (
   <>
     <ScrollToTop />
@@ -23,24 +29,40 @@ export const myRouter = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />,
+        element: <Home/>,
       },
       {
         path: "/banner",
-        element: <Banner />,
+        element: <Banner/>
       },
       {
         path: "/events",
-        element: <Events />,
+        element: <Events/>
       },
       {
         path: "/ski",
-        element: <Ski />,
+        element: <Ski/>
       },
       {
         path: "/catalog",
-        element: <Catalog />,
+        element: <Catalog/>
+      }, 
+      {
+        path: "/hotel",
+        element: <Hotel/>
       },
+      {
+        path: "/hotel/rooms",
+        element: <Guest/>
+      },
+      {
+        path: "/hotel/booking",
+        element: <Hotel2/>
+      },
+         {
+        path: "/slu",
+        element: <Slujba/>
+      }
       {
         path: "/signup",
         element: <SignUp />,
@@ -51,6 +73,7 @@ export const myRouter = createBrowserRouter([
       },
     
       ...(PagesRouter.children || []),
+
     ],
   },
   adminRoutes,

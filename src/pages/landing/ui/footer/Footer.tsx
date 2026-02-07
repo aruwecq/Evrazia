@@ -54,6 +54,7 @@ function Footer() {
                                     <li><Link to="/booking" className="hover:text-blue-600">Забронировать номер</Link></li>
                                     <li><Link to="/kids" className="hover:text-blue-600">Детям</Link></li>
                                      <li><Link to="/contact" className="hover:text-blue-600">Контакты</Link></li>
+                                     <li><Link to="/slu" className="hover:text-blue-600">Служба</Link></li>
 
                                 </ul>
                             </div>
