@@ -62,7 +62,7 @@ export const myRouter = createBrowserRouter([
          {
         path: "/slu",
         element: <Slujba/>
-      }
+      },
       {
         path: "/signup",
         element: <SignUp />,
