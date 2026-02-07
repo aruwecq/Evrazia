@@ -10,6 +10,10 @@ import { Tarif } from "./landing/ui/tarif/Tarif";
 import { Trassa } from "./landing/ui/trassa/Trassa";
 import { Vacansi } from "./landing/ui/vacansi/Vacansi";
 import {Gornye} from './landing/ui/gornye/Gornye'
+import Hotel from "../pages/landing/pages/Hotel/Hotel.tsx";
+import Guest from "../pages/landing/pages/Hotel/Guest.tsx";
+import Hotel2 from "../pages/landing/pages/Hotel/Hotel2.tsx";
+import Accommodation from "../pages/landing/pages/accommodation/Accommodation.tsx";
 export const Router = {    
         path: "",
         element: <>
@@ -57,6 +61,22 @@ export const Router = {
                                          {
           path: "/gornye",
           element: <Gornye/>
-        }
+        },
+          {
+                path: "/hotel",
+                element: <Hotel />,
+              },
+              {
+                path: "/hotel/rooms",
+                element: <Guest />,
+              },
+              {
+                path: "/hotel/booking",
+                element: <Hotel2 />,
+              },
+              {
+                path: "/accommodation",
+                element: <Accommodation />,
+              },
         ]
     } 

@@ -7,11 +7,9 @@ import Ski from "../pages/landing/pages/Ski/Ski.tsx";
 import Banner from "../pages/landing/ui/banner/Banner";
 import Events from "../pages/landing/pages/events/Events";
 import Catalog from "../pages/landing/pages/catalog/Catalog.tsx";
-import Hotel from "../pages/landing/pages/Hotel/Hotel.tsx";
-import Guest from "../pages/landing/pages/Hotel/Guest.tsx";
-import Hotel2 from "../pages/landing/pages/Hotel/Hotel2.tsx";
-import Accommodation from "../pages/landing/pages/accommodation/Accommodation.tsx";
-
+import { adminRoutes } from "../features/admin/adminRoutes.tsx";
+import { SignUp } from "../features/auth/ui/signUp/SignUp.tsx";
+import { SignIn } from "../features/auth/ui/signIn/SignIn.tsx";
 const LayoutWithScroll = () => (
   <>
     <ScrollToTop />
@@ -44,23 +42,16 @@ export const myRouter = createBrowserRouter([
         element: <Catalog />,
       },
       {
-        path: "/hotel",
-        element: <Hotel />,
+        path: "/signup",
+        element: <SignUp />,
       },
       {
-        path: "/hotel/rooms",
-        element: <Guest />,
+        path: "/signin",
+        element: <SignIn />,
       },
-      {
-        path: "/hotel/booking",
-        element: <Hotel2 />,
-      },
-      {
-        path: "/accommodation",
-        element: <Accommodation />,
-      },
-      // routes from src/pages/route.tsx
+    
       ...(PagesRouter.children || []),
     ],
   },
+  adminRoutes,
 ]);
