@@ -8,6 +8,7 @@ import { Kurort1 } from "./landing/ui/kurort1/Kurort1";
 import { Tarif } from "./landing/ui/tarif/Tarif";
 import { Trassa } from "./landing/ui/trassa/Trassa";
 import { Vacansi } from "./landing/ui/vacansi/Vacansi";
+import {Gornye} from './landing/ui/gornye/Gornye'
 export const Router = {    
         path: "",
         element: <Layout/>,
@@ -48,6 +49,10 @@ export const Router = {
                                       {
           path: "/tracks",
           element: <Trassa/>
+        },
+                                         {
+          path: "/gornye",
+          element: <Gornye/>
         }
         ]
     } 
