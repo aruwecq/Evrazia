@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import { Layout } from "../widgets/Layout/Layout";
 import ScrollToTop from "../pages/landing/ui/Scroll/ScrollToTop"; 
+import { Router as PagesRouter } from "../pages/route";
 import { Home } from "../pages/landing/ui/Home";
 import Ski from "../pages/landing/pages/Ski/Ski.tsx";
 import Banner from "../pages/landing/ui/banner/Banner";
@@ -11,17 +12,20 @@ import Guest from "../pages/landing/pages/Hotel/Guest.tsx";
 import Hotel2 from "../pages/landing/pages/Hotel/Hotel2.tsx";
 import { Slujba } from "../pages/landing/ui/slujba/Slujba.tsx";
 
+import { adminRoutes } from "../features/admin/adminRoutes.tsx";
+import { SignUp } from "../features/auth/ui/signUp/SignUp.tsx";
+import { SignIn } from "../features/auth/ui/signIn/SignIn.tsx";
+        
 const LayoutWithScroll = () => (
   <>
     <ScrollToTop />
     <Layout />
   </>
 );
-
 export const myRouter = createBrowserRouter([
   {
     path: "/",
-    element: <LayoutWithScroll />, 
+    element: <LayoutWithScroll />,
     children: [
       {
         path: "/",
@@ -59,7 +63,18 @@ export const myRouter = createBrowserRouter([
         path: "/slu",
         element: <Slujba/>
       }
+      {
+        path: "/signup",
+        element: <SignUp />,
+      },
+      {
+        path: "/signin",
+        element: <SignIn />,
+      },
+    
+      ...(PagesRouter.children || []),
 
     ],
   },
+  adminRoutes,
 ]);
