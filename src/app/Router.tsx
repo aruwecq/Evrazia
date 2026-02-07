@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import { Layout } from "../widgets/Layout/Layout";
 import ScrollToTop from "../pages/landing/ui/Scroll/ScrollToTop"; 
+import { Router as PagesRouter } from "../pages/route";
 import { Home } from "../pages/landing/ui/Home";
 import Ski from "../pages/landing/pages/Ski/Ski.tsx";
 import Banner from "../pages/landing/ui/banner/Banner";
@@ -58,6 +59,8 @@ export const myRouter = createBrowserRouter([
         path: "/accommodation",
         element: <Accommodation />,
       },
+      // routes from src/pages/route.tsx
+      ...(PagesRouter.children || []),
     ],
   },
 ]);

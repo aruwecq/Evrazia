@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import Banner from '../../ui/banner/Banner';
 import Icons from '../../ui/icons/Icons';
 import img1 from '../../img/hotel (1).png';
-import img2 from '../../img/hotel (2).png'; 
-import img3 from '../../img/hotel (3).png'; 
+import img2 from '../../img/hotel (2).png';
+import img3 from '../../img/hotel (3).png';
 
 function Accommodation() {
     return (

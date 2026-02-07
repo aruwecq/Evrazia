@@ -1,4 +1,5 @@
 import { Layout } from "../widgets/Layout/Layout";
+import ScrollToTop from "./landing/ui/Scroll/ScrollToTop";
 import Cafe from "./landing/pages/cafe/Cafe";
 import NewsPages from "./landing/pages/news/NewsPages";
 import { Banket } from "./landing/ui/banket/Banket";
@@ -10,7 +11,10 @@ import { Trassa } from "./landing/ui/trassa/Trassa";
 import { Vacansi } from "./landing/ui/vacansi/Vacansi";
 export const Router = {    
         path: "",
-        element: <Layout/>,
+        element: <>
+          <ScrollToTop />
+          <Layout />
+        </>,
         children:[     
       {
           path: "/news",
