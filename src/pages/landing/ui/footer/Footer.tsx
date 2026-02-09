@@ -37,11 +37,11 @@ function Footer() {
                             <div>
                                 <ul className="space-y-2 text-sm">
                                     <li><Link to="/news" className="hover:text-blue-600">Новости</Link></li>
-                                    <li><Link to="/tarif" className="hover:text-blue-600">Тарифы</Link></li>
                                     <li><Link to="/rent" className="hover:text-blue-600">Прокат</Link></li>
                                     <li><Link to="/actions" className="hover:text-blue-600">Акции и туры</Link></li>
                                     <li><Link to="/price-list" className="hover:text-blue-600">Цены на услуги</Link></li>
                                     <li><Link to="/documentss" className="hover:text-blue-600">Документы </Link></li>
+                                    <li><Link to="/slu" className="hover:text-blue-600">Служба</Link></li>
 
                                 </ul>
                             </div>
@@ -53,9 +53,10 @@ function Footer() {
                                     <li><Link to="/living" className="hover:text-blue-600">Проживание</Link></li>
                                     <li><Link to="/booking" className="hover:text-blue-600">Забронировать номер</Link></li>
                                     <li><Link to="/kids" className="hover:text-blue-600">Детям</Link></li>
-                                     <li><Link to="/contact" className="hover:text-blue-600">Контакты</Link></li>
-                                     <li><Link to="/slu" className="hover:text-blue-600">Служба</Link></li>
-
+                                    <Link to="/tarif" className="hover:text-blue-600">
+                                        Тарифы
+                                    </Link>
+                                    <li><Link to="/contact" className="hover:text-blue-600">Контакты</Link></li>
                                 </ul>
                             </div>
                         </div>
@@ -92,3 +93,4 @@ function Footer() {
 }
 
 export default Footer;
+
