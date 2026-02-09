@@ -71,6 +71,7 @@ export const myRouter = createBrowserRouter([
         path: "/signin",
         element: <SignIn />,
       },
+      
     
       ...(PagesRouter.children || []),
 

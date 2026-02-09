@@ -67,7 +67,7 @@ export function Documentss() {
   ];
 
   return (
-    <div className="max-w-7xl mx-auto p-6 font-sans bg-gray-50 min-h-screen">
+    <div className="max-w-7xl mx-auto p-6 font-sans  min-h-screen mt-10">
       <div className="space-y-4">
         {documents.map((doc, index) => (
           <div 
