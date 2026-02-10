@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Banner from "../banner/Banner";
 
 export function Documentss() {
   const [selectedDoc, setSelectedDoc] = useState(null);
@@ -68,6 +69,9 @@ export function Documentss() {
 
   return (
     <div className="max-w-7xl mx-auto p-6 font-sans  min-h-screen mt-10">
+         <div className="mb-12 rounded-[2.5rem] overflow-hidden transition-transform duration-500 hover:shadow-2xl">
+        <Banner />
+      </div>
       <div className="space-y-4">
         {documents.map((doc, index) => (
           <div 
