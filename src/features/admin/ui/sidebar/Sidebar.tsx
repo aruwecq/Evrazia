@@ -11,19 +11,23 @@ const adminMenu = [
   { name: 'Вакансии', path: '/admin/vacancies', icon: <Users size={20} /> },
 ];
 
-export const Sidebar = () => {
+export const Sidebar = ({ open, onClose }: { open?: boolean; onClose?: () => void }) => {
   const { pathname } = useLocation();
 
   return (
-    <aside className="w-64 min-w-[256px] h-screen bg-white border-r border-gray-100 flex flex-col fixed left-0 top-0 z-50">
+    <aside className={`fixed left-0 top-0 z-50 h-screen w-64 min-w-[256px] bg-white border-r border-gray-100 flex flex-col transform transition-transform duration-300 ${open ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 md:static`}>
       <div className="p-8 mb-4">
         <div className="flex items-center gap-3">
           <img src={img1} alt="Evrazia Logo" className="h-10" />
 
+          {/* close button on mobile */}
+          <button onClick={() => onClose && onClose()} className="md:hidden absolute right-3 top-3 p-2 rounded-md bg-gray-100">
+            ✕
+          </button>
         </div>
       </div>
 
-      <nav className="flex-1 px-4 space-y-1">
+      <nav className="flex-1 px-4 space-y-1 mt-2">
         {adminMenu.map((item) => {
           const isActive = pathname === item.path;
           return (

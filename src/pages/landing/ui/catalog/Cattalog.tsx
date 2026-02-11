@@ -30,8 +30,8 @@ function Catalog() {
                 
                 <Swiper
                     modules={[Autoplay, Navigation]}
-                    spaceBetween={20}
-                    slidesPerView={3}
+                        spaceBetween={20}
+                        slidesPerView={1}
                     loop={true}
                     autoplay={{
                         delay: 2500,
@@ -42,8 +42,8 @@ function Catalog() {
                         prevEl: '.swiper-button-prev-custom',
                     }}
                     breakpoints={{
-                        640: { slidesPerView: 4 },
-                        1024: { slidesPerView: 8 }, // Kompyuterda 8-9 ta element rasmda ko'rsatilgandek
+                        640: { slidesPerView: 3 },
+                        1024: { slidesPerView: 8 },
                     }}
                     className="py-4"
                 >

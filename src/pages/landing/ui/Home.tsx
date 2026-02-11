@@ -6,7 +6,7 @@ import Icons from '../ui/icons/Icons';
 import Card from "./card/Card";
 export function Home() {
   return (
-    <div>
+    <div className="max-w-[1400px] mx-auto px-4">
       <Banner />
       <Catalog />
       <Card />
