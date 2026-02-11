@@ -21,13 +21,13 @@ const Catalog = () => {
     return (
         
          
-        <div className="max-w-[1440px] mx-auto ">
-<div className="w-full mb-10" ><Cattalog  /></div>
-           
-           <div className='px-4 py-10 flex gap-8'>
+                <div className="max-w-[1440px] mx-auto px-4 sm:px-6">
+                    <div className="w-full mb-10"><Cattalog /></div>
+
+                    <div className='px-0 py-10 flex flex-col md:flex-row gap-8'>
 
             {/* LEFT SIDE: FILTERS (Chap tomon: Filtrlar) */}
-            <aside className="w-[300px] flex-shrink-0 space-y-8 font-sans">
+            <aside className="hidden md:block w-[300px] flex-shrink-0 space-y-8 font-sans">
                 <div className="space-y-10">
 
                     {/* Категории товаров */}
@@ -288,15 +288,37 @@ const Catalog = () => {
 
                 </div>
 
-            </aside>
+                        </aside>
 
-            {/* RIGHT SIDE: PRODUCT GRID (O'ng tomon: Mahsulotlar) */}
+                        {/* Mobile filters (collapsible) - visible only on small screens */}
+                        <div className="block md:hidden w-full">
+                            <details className="mb-6 border rounded-lg">
+                                <summary className="px-4 py-3 bg-white font-semibold cursor-pointer">Фильтры</summary>
+                                <div className="p-4 space-y-6">
+                                    <div>
+                                        <h4 className="font-semibold mb-2">Категории</h4>
+                                        <div className="grid grid-cols-2 gap-2">
+                                            {['Сноуборды','Крепления','Обувь','Наборы','Куртки','Штаны'].map((n,i)=>(
+                                                <label key={i} className="flex items-center justify-between px-2 py-1 border rounded">{n} <span className="text-xs text-gray-400">12</span></label>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <h4 className="font-semibold mb-2">Бренд</h4>
+                                        <input type="text" placeholder="Поиск" className="w-full border-b border-gray-200 py-2 outline-none" />
+                                    </div>
+                                </div>
+                            </details>
+                        </div>
+
+                        {/* RIGHT SIDE: PRODUCT GRID (O'ng tomon: Mahsulotlar) */}
             <main className="flex-1">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10">
                     {products.map((item) => (
                         <div key={item.id} className="flex flex-col">
                             {/* Card Image Part */}
-                            <div className="bg-[#F8F8F8] relative rounded-lg p-10 h-[350px] flex items-center justify-center group">
+                            <div className="bg-[#F8F8F8] relative rounded-lg p-6 sm:p-10 h-56 sm:h-[350px] flex items-center justify-center group">
                                 <button className="absolute top-4 right-4 z-10 p-2 bg-white rounded-full shadow-sm">
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2">
                                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
@@ -307,7 +329,7 @@ const Catalog = () => {
                                         {item.discount}
                                     </span>
                                 )}
-                                <img src={item.img} alt="" className="max-h-full object-contain transition-transform group-hover:scale-105" />
+                                <img src={item.img} alt="" className="max-h-full w-auto object-contain transition-transform group-hover:scale-105" />
                             </div>
 
                             {/* Info Part */}

@@ -37,14 +37,12 @@ export function Trassa() {
           <h2 className="text-2xl font-semibold text-sky-500 mb-4">Трассы</h2>
           
           {tracks.map((track) => (
-            <div key={track.id} className="flex items-center gap-3">
-              <div className={`${track.color} text-white font-bold w-14 h-12 flex items-center justify-center rounded-lg italic text-xl shadow-sm`}>
-                {track.id}
-              </div>
-              <div className="border-2 border-sky-100 rounded-lg px-4 py-3 w-36 text-center text-gray-500 font-bold">
+            <div key={track.id} className="flex flex-col sm:flex-row sm:items-center gap-3">
+              <div className={`${track.color} text-white font-bold w-14 h-12 flex items-center justify-center rounded-lg italic text-xl shadow-sm`}> {track.id} </div>
+              <div className="border-2 border-sky-100 rounded-lg px-3 py-2 sm:px-4 sm:py-3 flex-1 text-center sm:text-left text-gray-500 font-bold">
                 {track.name}
               </div>
-              <div className="border-2 border-sky-100 rounded-lg px-4 py-3 w-48 text-center text-gray-700 font-extrabold text-lg">
+              <div className="border-2 border-sky-100 rounded-lg px-3 py-2 sm:px-4 sm:py-3 text-center sm:text-left text-gray-700 font-extrabold text-sm sm:text-lg">
                 {track.length}
               </div>
             </div>
@@ -53,15 +51,15 @@ export function Trassa() {
           <div className="pt-4 space-y-4">
             <div className="flex items-center gap-3">
                <div className="bg-yellow-500 w-14 h-12 rounded-lg flex items-center justify-center text-2xl shadow-sm">🏔️</div>
-               <div className="border-2 border-sky-100 rounded-lg px-4 py-3 flex-grow text-gray-600 font-bold max-w-[350px]">неподготовленный склон</div>
+            <div className="border-2 border-sky-100 rounded-lg px-3 py-2 flex-grow text-gray-600 font-bold max-w-full">неподготовленный склон</div>
             </div>
             <div className="flex items-center gap-3">
                <div className="bg-sky-700 w-14 h-12 rounded-lg flex items-center justify-center text-2xl shadow-sm">👣</div>
-               <div className="border-2 border-sky-100 rounded-lg px-4 py-3 flex-grow text-gray-600 font-bold max-w-[350px]">тропа снежного человека</div>
+            <div className="border-2 border-sky-100 rounded-lg px-3 py-2 flex-grow text-gray-600 font-bold max-w-full">тропа снежного человека</div>
             </div>
             <div className="flex items-center gap-3">
                <div className="bg-orange-400 w-14 h-3 rounded-full shadow-sm"></div>
-               <div className="border-2 border-sky-100 rounded-lg px-4 py-3 flex-grow text-gray-600 font-bold max-w-[350px]">сноу парк</div>
+            <div className="border-2 border-sky-100 rounded-lg px-3 py-2 flex-grow text-gray-600 font-bold max-w-full">сноу парк</div>
             </div>
           </div>
         </div>
@@ -74,19 +72,19 @@ export function Trassa() {
           <div className="mt-6 p-4 bg-sky-50/50 rounded-3xl">
             <h3 className="text-xl font-bold text-sky-500 mb-4">Сложность</h3>
             <div className="flex flex-wrap gap-4">
-               <div className="bg-sky-500 text-white p-4 rounded-2xl flex flex-col items-center min-w-[120px] shadow-md">
+              <div className="bg-sky-500 text-white p-4 rounded-2xl flex flex-col items-center min-w-[80px] sm:min-w-[120px] shadow-md">
                  <div className="border-b-4 border-white w-10 mb-2"></div>
                  <span className="text-sm font-black uppercase">легкая</span>
                </div>
-               <div className="bg-sky-600 text-white p-4 rounded-2xl flex flex-col items-center min-w-[120px] shadow-md">
+              <div className="bg-sky-600 text-white p-4 rounded-2xl flex flex-col items-center min-w-[80px] sm:min-w-[120px] shadow-md">
                  <div className="border-b-4 border-white w-14 mb-2"></div>
                  <span className="text-sm font-black uppercase">средняя</span>
                </div>
-               <div className="bg-sky-700 text-white p-4 rounded-2xl flex flex-col items-center min-w-[120px] shadow-md">
+              <div className="bg-sky-700 text-white p-4 rounded-2xl flex flex-col items-center min-w-[80px] sm:min-w-[120px] shadow-md">
                  <div className="border-b-4 border-red-500 w-12 mb-2"></div>
                  <span className="text-sm font-black uppercase">высокая</span>
                </div>
-               <div className="bg-sky-500 text-white p-4 rounded-2xl flex flex-col items-center min-w-[120px] shadow-md">
+              <div className="bg-sky-500 text-white p-4 rounded-2xl flex flex-col items-center min-w-[80px] sm:min-w-[120px] shadow-md">
                  <div className="border-4 border-white rounded-full w-7 h-7 flex items-center justify-center font-bold mb-1">O</div>
                  <span className="text-sm font-black uppercase text-center">тюбинг</span>
                </div>
@@ -100,7 +98,7 @@ export function Trassa() {
   <div className="flex flex-col lg:flex-row gap-10 items-start">
     
     {/* Сол жагы: Көк блок (Фигмадагыдай 4+3 катар) */}
-    <div className="bg-[#009ee3] rounded-[2rem] p-8 text-white w-full lg:w-[620px] shadow-lg">
+    <div className="bg-[#009ee3] rounded-[2rem] p-6 md:p-8 text-white w-full lg:w-[620px] shadow-lg">
       <div className="flex flex-col gap-8">
         
         {/* Үстүнкү 4 катар (4 columns) */}
@@ -139,37 +137,37 @@ export function Trassa() {
     {/* Оң жагы: Статустар жана баскычтар */}
     <div className="flex-1 space-y-8">
       <div className="flex items-start gap-4">
-        <div className="bg-[#009ee3] text-white px-8 py-2 rounded-xl text-sm font-bold uppercase min-w-[110px] text-center">open</div>
+        <div className="bg-[#009ee3] text-white px-6 py-2 rounded-xl text-sm font-bold uppercase min-w-[90px] text-center">open</div>
         <p className="text-sm text-gray-700 leading-snug">
           Трасса открыта и полностью подготовлена к катанию. Огорожена сетями безопасности. Трассу ежедневно обрабатывает снегоуплотнительная техника.
         </p>
       </div>
       <div className="flex items-start gap-4">
-        <div className="bg-[#95c11f] text-white px-8 py-2 rounded-xl text-sm font-bold uppercase min-w-[110px] text-center">close</div>
+        <div className="bg-[#95c11f] text-white px-6 py-2 rounded-xl text-sm font-bold uppercase min-w-[90px] text-center">close</div>
         <p className="text-sm text-gray-700 leading-snug">
           Трасса закрыта для катания. Не огорожена сетями безопасности. Недостаточно снежного покрова для безопасного катания.
         </p>
       </div>
       <div className="flex items-start gap-4">
-        <div className="bg-[#fbbf24] w-[110px] h-10 rounded-xl flex items-center justify-center shrink-0">
+        <div className="bg-[#fbbf24] w-[90px] h-10 rounded-xl flex items-center justify-center shrink-0">
           <div className="w-6 h-6 bg-white rotate-45 rounded-sm"></div>
         </div>
         <p className="text-sm text-gray-700 leading-snug">
           Трасса частично подготовлена. Трасса работает в формате неподготовленного склона. Катание осуществляется на страх и риск отдыхающих.
         </p>
       </div>
-      <div className="flex gap-4 pt-4">
-        <button className="bg-[#009ee3] text-white px-8 py-3 rounded-xl text-sm font-bold">Скачать карту</button>
-        <button className="bg-[#009ee3] text-white px-8 py-3 rounded-xl text-sm font-bold">Скачать карту троп</button>
+      <div className="flex flex-col sm:flex-row gap-4 pt-4">
+        <button className="bg-[#009ee3] text-white px-6 py-3 rounded-xl text-sm font-bold">Скачать карту</button>
+        <button className="bg-[#009ee3] text-white px-6 py-3 rounded-xl text-sm font-bold">Скачать карту троп</button>
       </div>
     </div>
 
   </div>
 </div>
-      <div className="mt-20 space-y-12 pb-10 ml-10">
+      <div className="mt-20 space-y-12 pb-10">
         <div className="space-y-4">
           <h2 className="text-2xl font-bold text-sky-500">1 трасса</h2>
-          <p className="text-gray-700 text-[15px] leading-relaxed max-w-5xl">трасса для "Новичков", продолжительностью 1,650 метров. Склон оснащен системой искусственного освещения. По бокам трассы установлены небольшие трамплины. Рельеф склона отлично подходит для обучения технике катания и трассового фристайла. Пересекает "2 трассу" и "секретную трассу". Окончание трассы имеет 2 направления: 1А - более крутой спуск, 1B - более пологий спуск;</p>
+          <p className="text-gray-700 text-[15px] leading-relaxed max-w-full md:max-w-5xl">трасса для "Новичков", продолжительностью 1,650 метров. Склон оснащен системой искусственного освещения. По бокам трассы установлены небольшие трамплины. Рельеф склона отлично подходит для обучения технике катания и трассового фристайла. Пересекает "2 трассу" и "секретную трассу". Окончание трассы имеет 2 направления: 1А - более крутой спуск, 1B - более пологий спуск;</p>
         </div>
 
         <div className="space-y-4">
@@ -212,7 +210,7 @@ export function Trassa() {
           <p className="text-gray-700 text-[15px] leading-relaxed max-w-5xl">трассы для райдеров "Высокого уровня" катания расположены на 4, 5, 5А, 7 и 8 склонах и между ними в лесной зоне, а также в лесных зонах между 1, 2 и 3 склонами. Трассы имеют предназначение для спуска по необработанной местности. Бугры, свисающие деревья, контруклоны, "дропы" дают возможность освоить технику внетрассового катания. АДМИНИСТРАЦИЯ НЕ НЕСЕТ ОТВЕТСТВЕННОСТЬ ЗА ТРАВМЫ ИЛИ ПОЛОМКУ СНАРЯЖЕНИЯ ПОЛУЧЕННЫЕ ПРИ СПУСКЕ ПО ЭТИМ ТРАССАМ.</p>
         </div>
       </div>
-      <div className="max-w-7xl mx-auto px-6 py-16">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 py-16">
   <div className="flex flex-col lg:flex-row gap-12 items-start">
 
     {/* КАРТА */}
@@ -260,22 +258,22 @@ export function Trassa() {
     </div>
   </div>
 </div>
-<div className="max-w-7xl mx-auto px-6 py-12">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 py-12">
       
       {/* 1. Жогору жактагы үч сүрөт */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-        <img src={tra11} alt="Техника" className="rounded-[40px] w-full h-[280px] object-cover" />
-        <img src={tra12} alt="Подъемник 1" className="rounded-[40px] w-full h-[280px] object-cover" />
-        <img src={tra13} alt="Подъемник 2" className="rounded-[40px] w-full h-[280px] object-cover" />
+        <img src={tra11} alt="Техника" className="rounded-[40px] w-full h-56 md:h-[280px] object-cover" />
+        <img src={tra12} alt="Подъемник 1" className="rounded-[40px] w-full h-56 md:h-[280px] object-cover" />
+        <img src={tra13} alt="Подъемник 2" className="rounded-[40px] w-full h-56 md:h-[280px] object-cover" />
       </div>
 
       {/* 2. Заголовок */}
-      <h2 className="text-[42px] font-bold text-[#23a9e1] mb-10 tracking-tight">
+      <h2 className="text-3xl md:text-[42px] font-bold text-[#23a9e1] mb-10 tracking-tight">
         Подъемники
       </h2>
 
       {/* 3. Көк блок (Артында тоолордун сүрөтү менен) */}
-      <div className="relative rounded-[60px] bg-[#23a9e1] overflow-hidden min-h-[240px] flex items-center">
+      <div className="relative rounded-[60px] bg-[#23a9e1] overflow-hidden min-h-[180px] md:min-h-[240px] flex items-center">
         
         <div 
           className="absolute inset-0 w-full h-full opacity-110 pointer-events-none"
@@ -287,8 +285,8 @@ export function Trassa() {
         ></div>
 
         {/* ТЕКСТ КАТМАРЫ */}
-        <div className="relative z-10 px-12 py-12">
-          <p className="text-white text-[20px] md:text-[22px] leading-[1.5] font-medium max-w-5xl">
+        <div className="relative z-10 px-6 md:px-12 py-8 md:py-12">
+          <p className="text-white text-[16px] md:text-[20px] leading-[1.5] font-medium max-w-full md:max-w-5xl">
             Все трассы обслуживаются 4-х кресельным подъемником австрийской фирмы 
             «Doppelmayr», который всего за 7–8 минут доставит вас на вершину 
             горы Копанец, 610 метров. Учебный склон обслуживается бугельным 

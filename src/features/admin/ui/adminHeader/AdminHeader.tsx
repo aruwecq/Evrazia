@@ -1,16 +1,23 @@
 import React from 'react';
 import { Bell, Search, User } from 'lucide-react';
 
-export const AdminHeader = () => {
+export const AdminHeader = ({ onToggleSidebar }: { onToggleSidebar?: () => void }) => {
   return (
-    <header className="h-20 bg-white border-b border-gray-100 flex items-center justify-between px-8 sticky top-0 z-40">
-      <div className="relative w-96">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-300" size={18} />
-        <input 
-          type="text" 
-          placeholder="Поиск по панели..." 
-          className="w-full pl-10 pr-4 py-2 bg-gray-50 rounded-xl border-none outline-none text-sm focus:ring-2 focus:ring-blue-100 transition-all"
-        />
+    <header className="h-20 bg-white border-b border-gray-100 flex items-center justify-between px-4 md:px-8 sticky top-0 z-40">
+      <div className="flex items-center gap-3">
+        {/* sidebar toggle on mobile */}
+        <button onClick={() => onToggleSidebar && onToggleSidebar()} className="md:hidden p-2 rounded-md bg-gray-50">
+          ☰
+        </button>
+
+        <div className="relative w-full max-w-md">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-300" size={18} />
+          <input 
+            type="text" 
+            placeholder="Поиск по панели..." 
+            className="w-full pl-10 pr-4 py-2 bg-gray-50 rounded-xl border-none outline-none text-sm focus:ring-2 focus:ring-blue-100 transition-all"
+          />
+        </div>
       </div>
 
       <div className="flex items-center gap-6">
