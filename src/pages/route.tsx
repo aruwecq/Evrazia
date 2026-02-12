@@ -14,6 +14,7 @@ import Hotel from "../pages/landing/pages/Hotel/Hotel.tsx";
 import Guest from "../pages/landing/pages/Hotel/Guest.tsx";
 import Hotel2 from "../pages/landing/pages/Hotel/Hotel2.tsx";
 import Accommodation from "../pages/landing/pages/accommodation/Accommodation.tsx";
+import { Favorites } from "./landing/ui/favorites/Favorites.tsx";
 export const Router = {    
         path: "",
         element: <>
@@ -77,6 +78,10 @@ export const Router = {
               {
                 path: "/accommodation",
                 element: <Accommodation />,
+              },
+                   {
+                path: "/favorites",
+                element: <Favorites/>,
               },
         ]
     } 
