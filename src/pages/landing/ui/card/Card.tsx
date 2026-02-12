@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import lib1 from '../../img/lib 9.png';
 import lib2 from '../../img/lib 9 (1).png';
 import lib3 from '../../img/lib 9 (2).png';
@@ -29,7 +29,28 @@ const Card = () => {
     const [favorites, setFavorites] = useState<number[]>([]);
     const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
+
     const visibleCards = 4;
+    // Bir vaqtning o'zida nechta karta ko'rinishi (responsive)
+    const [visibleCards, setVisibleCards] = useState(4);
+
+    useEffect(() => {
+        const update = () => {
+            const w = window.innerWidth;
+            if (w < 640) setVisibleCards(1);
+            else if (w < 1024) setVisibleCards(2);
+            else setVisibleCards(4);
+        };
+        update();
+        window.addEventListener('resize', update);
+        return () => window.removeEventListener('resize', update);
+    }, []);
+
+    useEffect(() => {
+        const maxIndex = Math.max(0, products.length - visibleCards);
+        if (currentIndex > maxIndex) setCurrentIndex(maxIndex);
+    }, [visibleCards, products.length, currentIndex]);
+
 
     const nextSlide = () => {
         if (currentIndex < products.length - visibleCards) {
@@ -50,7 +71,7 @@ const Card = () => {
     };
 
     return (
-        <section className="max-w-7xl mx-auto px-10 py-20 relative">
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-20 relative">
             <h2 className="text-4xl font-black text-center mb-16 uppercase tracking-tight text-[#1A1A1A]">
                 Новинки
             </h2>
@@ -59,7 +80,7 @@ const Card = () => {
                 <button
                     onClick={prevSlide}
                     disabled={currentIndex === 0}
-                    className={`absolute -left-12 top-1/2 -translate-y-1/2 z-20 p-2 transition-all 
+                    className={`absolute left-2 md:-left-12 top-1/2 -translate-y-1/2 z-20 p-2 transition-all 
                     ${currentIndex === 0 ? 'opacity-0 pointer-events-none' : 'opacity-100 hover:scale-110'}`}
                 >
                     <svg width="30" height="50" viewBox="0 0 24 44" fill="none" className="stroke-black">
@@ -73,11 +94,15 @@ const Card = () => {
                         style={{ transform: `translateX(-${currentIndex * (100 / visibleCards)}%)` }}
                     >
                         {products.map((item) => (
+
                             <div key={item.id} className="min-w-[25%] px-3 box-border">
                                 <div 
                                     onClick={() => setSelectedProduct(item)}
                                     className="bg-[#F8F8F8] relative rounded-lg p-8 h-[380px] flex items-center justify-center transition-transform hover:shadow-md cursor-pointer group"
                                 >
+
+                            <div key={item.id} className="px-3 box-border" style={{ flex: `0 0 ${100 / visibleCards}%` }}>
+                                <div className="bg-[#F8F8F8] relative rounded-lg p-8 h-[380px] flex items-center justify-center transition-transform hover:shadow-md">
                                     <button
                                         onClick={(e) => {
                                             e.stopPropagation(); 
@@ -123,7 +148,7 @@ const Card = () => {
                 <button
                     onClick={nextSlide}
                     disabled={currentIndex >= products.length - visibleCards}
-                    className={`absolute -right-12 top-1/2 -translate-y-1/2 z-20 p-2 transition-all 
+                    className={`absolute right-2 md:-right-12 top-1/2 -translate-y-1/2 z-20 p-2 transition-all 
                     ${currentIndex >= products.length - visibleCards ? 'opacity-0 pointer-events-none' : 'opacity-100 hover:scale-110'}`}
                 >
                     <svg width="30" height="50" viewBox="0 0 24 44" fill="none" className="stroke-black">
@@ -232,7 +257,6 @@ const Card = () => {
                             </button>
                         </div>
                     </div>
-
                     <div className="grid grid-cols-2 gap-6 pt-10 border-t border-blue-50">
                         <div className="flex flex-col gap-2">
                             <span className="text-[10px] font-black text-blue-300 uppercase tracking-widest">Доставка</span>

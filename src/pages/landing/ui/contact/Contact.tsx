@@ -39,120 +39,124 @@ export function Contact() {
     { day: 'Среда', cafe: '10.00 - 20.00' },
   ];
 
-  const tableHeaderStyle = { padding: '15px', fontWeight: 'normal', color: '#888', fontSize: '13px' };
-  const cellStyle = { padding: '15px', color: '#666' };
-  const dayCellStyle = { padding: '15px', display: 'flex', alignItems: 'center', gap: '15px', fontWeight: 'bold' };
-  const circleStyle = { width: '40px', height: '40px', backgroundColor: '#add8e6', borderRadius: '50%' };
+  const tableHeaderStyle = '';
 
   return (
-    <div style={{ fontFamily: 'sans-serif', padding: '40px 10%', color: '#333' }}>
-      
-      <h1 style={{ color: '#008cc9', fontSize: '36px', fontWeight: 'bold', textAlign: 'left', margin: '0 0 40px 0' }}>Контакты</h1>
+    <div className="font-sans px-4 sm:px-6 lg:px-8 py-10 text-gray-800">
 
-      <div style={{ textAlign: 'center' }}>
-        <p style={{ color: '#00aae4', fontSize: '14px', marginBottom: '10px' }}>Фактический адрес:</p>
-        <h2 style={{ fontSize: '28px', fontWeight: '600', marginBottom: '10px' }}>Челябинская область, г. Куса, ул. <br /> Олимпийская, д.75, стр. 1</h2>
-        <p style={{ color: '#777', fontSize: '16px', marginBottom: '50px' }}>Координаты: N55°23.088' E59°24.058'</p>
+      <h1 className="text-2xl sm:text-3xl md:text-4xl text-sky-600 font-bold text-left mb-6">Контакты</h1>
 
-        <div style={{ display: 'flex', justifyContent: 'space-between', gap: '20px', flexWrap: 'wrap', marginBottom: '60px' }}>
+      <div className="text-center">
+        <p className="text-sky-400 text-sm mb-2">Фактический адрес:</p>
+        <h2 className="text-xl sm:text-2xl font-semibold mb-2">Челябинская область, г. Куса, ул. <br /> Олимпийская, д.75, стр. 1</h2>
+        <p className="text-gray-600 text-base mb-8">Координаты: N55°23.088' E59°24.058'</p>
+
+        <div className="flex justify-between gap-6 flex-wrap mb-12">
           {contactData.map((item, i) => (
-            <div key={i} style={{ flex: '1', minWidth: '250px' }}>
-              <div style={{ width: '45px', height: '45px', backgroundColor: '#add8e6', borderRadius: '50%', border: '4px solid #8fd1f5', margin: '0 auto 15px' }}></div>
-              <h4 style={{ fontSize: '18px', marginBottom: '10px', height: '50px' }}>{item.title}</h4>
-              {item.phones.map((p, idx) => (<p key={idx} style={{ fontSize: '14px', margin: '2px 0', color: '#666' }}>{p}</p>))}
-              <p style={{ fontSize: '14px', marginTop: '10px' }}>E-mail: <a href={`mailto:${item.mail}`} style={{ color: '#008cc9', textDecoration: 'none', borderBottom: '1px solid #008cc9' }}>{item.mail}</a></p>
+            <div key={i} className="flex-1 min-w-[220px] max-w-[32rem]">
+              <div className="w-11 h-11 bg-sky-200 rounded-full border-4 border-sky-300 mx-auto mb-4" />
+              <h4 className="text-lg font-semibold mb-2 min-h-[42px]">{item.title}</h4>
+              {item.phones.map((p, idx) => (<p key={idx} className="text-sm mb-1 text-gray-600">{p}</p>))}
+              <p className="text-sm mt-2">E-mail: <a href={`mailto:${item.mail}`} className="text-sky-600 border-b border-sky-600">{item.mail}</a></p>
             </div>
           ))}
         </div>
 
-        <div style={{ fontSize: '14px', color: '#888', marginBottom: '40px' }}>
-          <p style={{ color: '#00aae4', fontWeight: 'bold' }}>Реквизиты:</p>
-          <p style={{ fontSize: '18px', color: '#555', margin: '10px 0' }}>ООО "Евразия Сервис"</p>
-          <p>ИНН/ОГРН 7404060424/1127404002098 Юридический адрес: Челябинская область, <br /> г. Куса, ул. Олимпийская, д.75, стр. 1</p>
+        <div className="text-sm text-gray-500 mb-8">
+          <p className="text-sky-400 font-semibold">Реквизиты:</p>
+          <p className="text-lg text-gray-700 my-2">ООО \"Евразия Сервис\"</p>
+          <p className="text-gray-600">ИНН/ОГРН 7404060424/1127404002098 Юридический адрес: Челябинская область, <br /> г. Куса, ул. Олимпийская, д.75, стр. 1</p>
         </div>
 
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '15px', marginBottom: '80px' }}>
+        <div className="flex justify-center gap-4 mb-12">
           {[fr2, fr3, fr1].map((icon, i) => (
-            <div key={i} style={{ width: '50px', height: '50px', backgroundColor: '#008cc9', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
-              <img src={icon} alt="icon" style={{ width: '25px' }} />
+            <div key={i} className="w-12 h-12 bg-sky-600 rounded-full flex items-center justify-center cursor-pointer">
+              <img src={icon} alt="icon" className="w-6" />
             </div>
           ))}
         </div>
       </div>
 
-      <hr style={{ border: 'none', borderTop: '1px solid #eee', margin: '60px 0' }} />
-      <h1 style={{ color: '#008cc9', fontSize: '36px', fontWeight: 'bold', textAlign: 'left', margin: '0 0 30px 0' }}>Схема проезда</h1>
-      <p style={{ color: '#777', lineHeight: '1.6', fontSize: '15px', textAlign: 'justify', marginBottom: '40px' }}>В наш современный и цифровой век многие пользуются навигаторами...</p>
-      <div style={{ width: '100%', height: '450px', borderRadius: '12px', overflow: 'hidden', marginBottom: '60px' }}>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2301.2!2d59.4!3d55.3!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTXCsDIzJzA1LjMiTiA1OcKwMjQnMDMuNSJF!5e0!3m2!1sru!2skg!4v1" width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy"></iframe>
+      <hr className="border-t border-gray-100 my-8" />
+      <h2 className="text-2xl text-sky-600 font-bold mb-4">Схема проезда</h2>
+      <p className="text-gray-600 leading-relaxed mb-6">В наш современный и цифровой век многие пользуются навигаторами...</p>
+      <div className="w-full h-64 sm:h-96 rounded-lg overflow-hidden mb-8">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2301.2!2d59.4!3d55.3!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTXCsDIzJzA1LjMiTiA1OcKwMjQnMDMuNSJF!5e0!3m2!1sru!2skg!4v1" width="100%" height="100%" className="border-0" allowFullScreen loading="lazy"></iframe>
       </div>
 
-      <hr style={{ border: 'none', borderTop: '1px solid #eee', margin: '60px 0' }} />
-      <h1 style={{ color: '#008cc9', fontSize: '36px', fontWeight: 'bold', textAlign: 'left', margin: '0 0 20px 0' }}>График работы</h1>
-      <h3 style={{ color: '#008cc9', fontSize: '18px', textAlign: 'left', marginBottom: '30px' }}>График работы горнолыжных трасс и службы проката снаряжения</h3>
-      <div style={{ overflowX: 'auto', marginBottom: '60px' }}>
-        <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
-          <thead>
+      <hr className="border-t border-gray-100 my-8" />
+      <h2 className="text-2xl text-sky-600 font-bold mb-2">График работы</h2>
+      <h3 className="text-sky-600 text-base mb-4">График работы горнолыжных трасс и службы проката снаряжения</h3>
+      <div className="overflow-x-auto mb-8">
+        <table className="min-w-full divide-y divide-gray-100 table-auto">
+          <thead className="bg-white">
             <tr>
-              <th style={tableHeaderStyle}>День недели</th>
-              <th style={tableHeaderStyle}>График работы трасс без освещения</th>
-              <th style={tableHeaderStyle}>График работы трассы с освещением №1 и №2</th>
-              <th style={tableHeaderStyle}>График работы учебного склона</th>
-              <th style={tableHeaderStyle}>График работы службы проката и сервиса снаряжения</th>
+              <th className="px-4 py-3 text-left text-sm text-gray-500">День недели</th>
+              <th className="px-4 py-3 text-left text-sm text-gray-500">График работы трасс без освещения</th>
+              <th className="px-4 py-3 text-left text-sm text-gray-500">График работы трассы с освещением №1 и №2</th>
+              <th className="px-4 py-3 text-left text-sm text-gray-500">График работы учебного склона</th>
+              <th className="px-4 py-3 text-left text-sm text-gray-500">График работы службы проката и сервиса снаряжения</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="bg-white divide-y divide-gray-50">
             {scheduleData.map((row, index) => (
-              <tr key={index} style={{ backgroundColor: index % 2 === 0 ? '#f9fbfd' : 'white' }}>
-                <td style={dayCellStyle}><div style={circleStyle}></div>{row.day}</td>
-                <td style={cellStyle}>{row.t1}</td><td style={cellStyle}>{row.t2}</td><td style={cellStyle}>{row.t3}</td><td style={cellStyle}>{row.t4}</td>
+              <tr key={index} className={index % 2 === 0 ? 'bg-sky-50' : ''}>
+                <td className="px-4 py-4 flex items-center gap-4 font-semibold"><div className="w-10 h-10 bg-sky-200 rounded-full border-4 border-sky-300" />{row.day}</td>
+                <td className="px-4 py-4 text-gray-600">{row.t1}</td>
+                <td className="px-4 py-4 text-gray-600">{row.t2}</td>
+                <td className="px-4 py-4 text-gray-600">{row.t3}</td>
+                <td className="px-4 py-4 text-gray-600">{row.t4}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
 
-      <div style={{ display: 'flex', gap: '40px', flexWrap: 'wrap' }}>
-        <div style={{ flex: 1, minWidth: '400px' }}>
-          <h3 style={{ color: '#008cc9', fontSize: '18px', marginBottom: '25px' }}>График работы кафе и гриль-бара:</h3>
-          <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-            <thead>
-              <tr>
-                <th style={tableHeaderStyle}>День недели</th>
-                <th style={tableHeaderStyle}>Время работы кафе</th>
-                <th style={tableHeaderStyle}>Время работы гриль-бара</th>
-              </tr>
-            </thead>
-            <tbody>
-              {cafeSchedule.map((row, index) => (
-                <tr key={index} style={{ backgroundColor: index % 2 === 0 ? '#f9fbfd' : 'white' }}>
-                  <td style={dayCellStyle}><div style={circleStyle}></div>{row.day}</td>
-                  <td style={cellStyle}>{row.cafe}</td>
-                  <td style={cellStyle}>{row.grill}</td>
+      <div className="flex flex-col lg:flex-row gap-8">
+        <div className="flex-1 min-w-0">
+          <h3 className="text-sky-600 text-lg mb-4">График работы кафе и гриль-бара:</h3>
+          <div className="overflow-x-auto">
+            <table className="min-w-full divide-y divide-gray-100">
+              <thead>
+                <tr>
+                  <th className="px-4 py-3 text-left text-sm text-gray-500">День недели</th>
+                  <th className="px-4 py-3 text-left text-sm text-gray-500">Время работы кафе</th>
+                  <th className="px-4 py-3 text-left text-sm text-gray-500">Время работы гриль-бара</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody className="divide-y divide-gray-50">
+                {cafeSchedule.map((row, index) => (
+                  <tr key={index} className={index % 2 === 0 ? 'bg-sky-50' : ''}>
+                    <td className="px-4 py-4 flex items-center gap-4 font-semibold"><div className="w-10 h-10 bg-sky-200 rounded-full border-4 border-sky-300" />{row.day}</td>
+                    <td className="px-4 py-4 text-gray-600">{row.cafe}</td>
+                    <td className="px-4 py-4 text-gray-600">{row.grill}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
 
-        <div style={{ flex: 1, minWidth: '400px' }}>
-          <h3 style={{ color: '#8db31a', fontSize: '18px', marginBottom: '25px' }}>График работы кафе и сервисного здания в летний период</h3>
-          <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-            <thead>
-              <tr>
-                <th style={tableHeaderStyle}>День недели</th>
-                <th style={tableHeaderStyle}>Время работы кафе</th>
-              </tr>
-            </thead>
-            <tbody>
-              {summerSchedule.map((row, index) => (
-                <tr key={index} style={{ backgroundColor: index % 2 === 0 ? '#f9fbfd' : 'white' }}>
-                  <td style={dayCellStyle}><div style={circleStyle}></div>{row.day}</td>
-                  <td style={cellStyle}>{row.cafe}</td>
+        <div className="flex-1 min-w-0">
+          <h3 className="text-emerald-600 text-lg mb-4">График работы кафе и сервисного здания в летний период</h3>
+          <div className="overflow-x-auto">
+            <table className="min-w-full divide-y divide-gray-100">
+              <thead>
+                <tr>
+                  <th className="px-4 py-3 text-left text-sm text-gray-500">День недели</th>
+                  <th className="px-4 py-3 text-left text-sm text-gray-500">Время работы кафе</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody className="divide-y divide-gray-50">
+                {summerSchedule.map((row, index) => (
+                  <tr key={index} className={index % 2 === 0 ? 'bg-sky-50' : ''}>
+                    <td className="px-4 py-4 flex items-center gap-4 font-semibold"><div className="w-10 h-10 bg-sky-200 rounded-full border-4 border-sky-300" />{row.day}</td>
+                    <td className="px-4 py-4 text-gray-600">{row.cafe}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>

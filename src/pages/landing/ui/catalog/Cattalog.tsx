@@ -32,11 +32,26 @@ function Catalog() {
             <div className="max-w-[1400px] mx-auto px-4 relative">
                 <Swiper
                     modules={[Autoplay, Navigation]}
+
                     spaceBetween={15}
                     slidesPerView={3}
                     navigation={{ nextEl: '.next-c', prevEl: '.prev-c' }}
                     breakpoints={{
                         640: { slidesPerView: 4 },
+                        spaceBetween={20}
+                        slidesPerView={1}
+                    loop={true}
+                    autoplay={{
+                        delay: 2500,
+                        disableOnInteraction: false,
+                    }}
+                    navigation={{
+                        nextEl: '.swiper-button-next-custom',
+                        prevEl: '.swiper-button-prev-custom',
+                    }}
+                    breakpoints={{
+                        640: { slidesPerView: 3 },
+
                         1024: { slidesPerView: 8 },
                     }}
                     className="mb-10"

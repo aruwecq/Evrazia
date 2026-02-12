@@ -4,9 +4,11 @@ import  Footer  from "../../pages/landing/ui/footer/Footer";
 
 export  function Layout() {
   return (
-    <div>
+    <div className="min-h-screen">
       <Header/>
-      <Outlet/>
+      <main className="px-4 sm:px-6 lg:px-8">
+        <Outlet/>
+      </main>
       <Footer/>
     </div>
   )

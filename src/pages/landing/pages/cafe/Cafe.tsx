@@ -35,9 +35,9 @@ function Cafe() {
                 {/* 1-SEKSIYA */}
                 <div className="flex flex-col md:flex-row gap-10 mb-24">
                     <div className="flex-1">
-                        <div className="rounded-3xl overflow-hidden mb-8 h-[200px]">
-                            <img src={cafeImg1} alt="Cafe interior" className="w-full h-full object-cover" />
-                        </div>
+                            <div className="rounded-3xl overflow-hidden mb-8 h-48 md:h-64">
+                                <img src={cafeImg1} alt="Cafe interior" className="w-full h-full object-cover" />
+                            </div>
                         <h2 className="text-2xl font-black text-[#00AEEF] leading-tight mb-6">
                             Кафе-ресторан «Евразия» самый настоящий <br />
                             “гастрономический рай” con обильным выбором блюд!
@@ -49,16 +49,16 @@ function Cafe() {
                         </div>
                     </div>
                     <div className="flex-1">
-                        <div className="rounded-[40px] overflow-hidden h-full min-h-[400px]">
+                        <div className="rounded-[40px] overflow-hidden h-auto min-h-[260px] md:min-h-[400px]">
                             <img src={cafeImg2} alt="Food display" className="w-full h-full object-cover" />
                         </div>
                     </div>
                 </div>
 
                 {/* 2-SEKSIYA: Korporativlar */}
-                <div className="flex flex-col md:flex-row  items-start mb-24">
-                    <div className="flex-1">
-                        <div className="rounded-[30px] overflow-hidden w-130 h-160">
+                <div className="flex flex-col md:flex-row  items-start mb-24 gap-8">
+                    <div className="flex">
+                        <div className="rounded-[40px] overflow-hidden h-auto min-h-[260px] md:min-h-[400px]">
                             <img src={cafeImg3} alt="Corporate event" className="w-full h-full object-cover" />
                         </div>
                     </div>
@@ -75,7 +75,7 @@ function Cafe() {
                 </div>
 
                 {/* CONTACT SECTION */}
-                <div className="text-center mt-20 border-t pt-16 border-gray-100">
+                <div className="text-center mt-12 border-t pt-8 border-gray-100">
                     <p className="text-[#00AEEF] font-bold mb-8 text-lg">Забронировать банкет и задать любые вопросы Вы можете по</p>
                     <div className="text-4xl font-[1000] text-[#2D2D2D] space-y-4">
                         <p className="underline underline-offset-8 decoration-gray-200">+7 (3513) 79-09-79;</p>
@@ -85,7 +85,7 @@ function Cafe() {
                 </div>
 
                 {/* NARX VA TUGMA */}
-                <div className="flex flex-col md:flex-row justify-between items-center bg-gray-50 p-8 rounded-2xl mb-24 border border-gray-100">
+                <div className="flex flex-col md:flex-row justify-between items-center bg-gray-50 p-6 md:p-8 rounded-2xl mb-12 border border-gray-100">
                     <div className="text-left">
                         <p className="text-[17px] font-bold text-[#00AEEF]">
                             Стоимость* проведения банкета <span className="text-gray-500 font-normal">— от 1 500 рублей/персона.</span>
@@ -98,10 +98,10 @@ function Cafe() {
                 </div>
 
 
-                <div className="flex flex-col md:flex-row  items-center mb-32">
+                <div className="flex flex-col md:flex-row  items-center mb-20 gap-6">
                     <div className="flex-1">
-                        <div className="rounded-[2 0px] ml-20 overflow-hidden ">
-                            <img src={cafeImg4} alt="Night event" className="w-100 h-full object-cover" />
+                        <div className="rounded-2xl overflow-hidden mx-auto md:mx-0">
+                            <img src={cafeImg4} alt="Night event" className="w-full h-auto object-cover" />
                         </div>
                     </div>
                     <div className="flex-1">
@@ -118,24 +118,22 @@ function Cafe() {
                 </div>
 
                {/* 4-SEKSIYA: Grill bar (RASM KICHRAYTIRILDI) */}
-                <div className="mb-32 max-w-5xl mx-auto">
+                <div className="mb-24 max-w-5xl mx-auto px-4 sm:px-0">
                     <p className="text-center text-[#00AEEF] font-bold italic mb-2 text-sm">В бар ходят отдохнуть и расслабиться</p>
                     <h2 className="text-4xl font-[1000] text-center text-[#2D2D2D] mb-12 uppercase">Гриль-бар</h2>
                     
-                    <div className="block overflow-hidden">
-                        {/* Rasm: sezilarli darajada kichraytirildi (350px) va float berildi */}
-                        <div className="float-left mr-10 mb-4 w-full md:w-[350px]">
-                            <div className="rounded-[40px] overflow-hidden shadow-md">
+                    <div className="flex flex-col md:flex-row items-start mb-20 gap-6">
+                        <div className="w-full md:w-[420px]">
+                            <div className="rounded-2xl overflow-hidden mx-auto md:mx-0">
                                 <img 
                                     src={cafeImg5} 
                                     alt="Grill bar" 
-                                    className="w-full h-[280px] object-cover" 
+                                    className="w-full h-56 md:h-[320px] object-cover" 
                                 />
                             </div>
                         </div>
 
-                        {/* Matn: Rasm atrofini chiroyli o'rab turadi */}
-                        <div className="text-[#555] text-[16px] leading-relaxed font-medium">
+                        <div className="text-[#555] text-[16px] leading-relaxed font-medium flex-1">
                             <p className="mb-6">Мы знаем, что горнолыжный центр без хорошего бара – это как коньяк без лимона… вкус есть, а послевкусие пропало… Мы знаем, что правильная еда – это честная еда. Вкус должен вставлять, завораживать!</p>
                             <p className="mb-6">Наш шеф-повар понимает вкус жизни и знает, как порадовать самых искушенных и требовательных гостей. Наше меню содержит блюда, которые привлекут веселую компанию голодных друзей или порадуют семейство любителей шашлыка. Мы знаем, чем удивить влюбленную парочку в поисках романтического уединения или охотников до приключений в пятницу вечером.</p>
                             <p>В бар ходят отдохнуть и расслабиться. Весь пар предлагаем выпустить на трассе, здесь вам не придется напрягаться – мы продумали для Вас всё: удобные столики, приятные цены, внимательный персонал.</p>
