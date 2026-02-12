@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Heart, ShoppingBag, Trash2 } from 'lucide-react';
-import izbzf from '../../img/izbzf.png';
+import izbzf from '../../img/izbf.png';
 
 export function Favorites() {
   const fakeFavorites = [

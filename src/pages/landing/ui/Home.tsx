@@ -12,7 +12,6 @@ export function Home() {
       <Card />
       <Poster />
       <News />
-      
       <Icons />
     </div>
   )
