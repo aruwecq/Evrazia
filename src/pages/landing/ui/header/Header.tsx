@@ -18,7 +18,6 @@ function Header() {
             />
           </Link>
         </div>
-
         <div className="hidden lg:flex gap-16 font-medium text-gray-700 items-center">
           <Link to="/resorts" className="hover:text-blue-600 transition">
             Курорт

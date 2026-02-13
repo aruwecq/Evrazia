@@ -29,7 +29,15 @@ const Card = () => {
     const [favorites, setFavorites] = useState<number[]>([]);
     const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
-    const visibleCards = 4;
+    const getVisibleCards = () => {
+        if (typeof window !== 'undefined') {
+            if (window.innerWidth < 640) return 1;
+            if (window.innerWidth < 1024) return 2;
+        }
+        return 4;
+    };
+
+    const [visibleCards, setVisibleCards] = useState(getVisibleCards());
 
     const nextSlide = () => {
         if (currentIndex < products.length - visibleCards) {
@@ -50,19 +58,19 @@ const Card = () => {
     };
 
     return (
-        <section className="max-w-7xl mx-auto px-10 py-20 relative">
-            <h2 className="text-4xl font-black text-center mb-16 uppercase tracking-tight text-[#1A1A1A]">
+        <section className="max-w-7xl mx-auto px-4 sm:px-10 py-10 lg:py-20 relative">
+            <h2 className="text-2xl sm:text-4xl font-black text-center mb-8 lg:mb-16 uppercase tracking-tight text-[#1A1A1A]">
                 Новинки
             </h2>
 
-            <div className="relative overflow-visible">
+            <div className="relative group">
                 <button
                     onClick={prevSlide}
                     disabled={currentIndex === 0}
-                    className={`absolute -left-12 top-1/2 -translate-y-1/2 z-20 p-2 transition-all 
+                    className={`absolute -left-2 sm:-left-12 top-1/2 -translate-y-1/2 z-20 p-2 transition-all 
                     ${currentIndex === 0 ? 'opacity-0 pointer-events-none' : 'opacity-100 hover:scale-110'}`}
                 >
-                    <svg width="30" height="50" viewBox="0 0 24 44" fill="none" className="stroke-black">
+                    <svg width="24" height="40" viewBox="0 0 24 44" fill="none" className="stroke-black">
                         <path d="M22 2L2 22L22 42" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                 </button>
@@ -73,20 +81,20 @@ const Card = () => {
                         style={{ transform: `translateX(-${currentIndex * (100 / visibleCards)}%)` }}
                     >
                         {products.map((item) => (
-                            <div key={item.id} className="min-w-[25%] px-3 box-border">
+                            <div key={item.id} className="min-w-full sm:min-w-[50%] lg:min-w-[25%] px-2 sm:px-3 box-border">
                                 <div 
                                     onClick={() => setSelectedProduct(item)}
-                                    className="bg-[#F8F8F8] relative rounded-lg p-8 h-[380px] flex items-center justify-center transition-transform hover:shadow-md cursor-pointer group"
+                                    className="bg-[#F8F8F8] relative rounded-lg p-4 sm:p-8 h-[300px] sm:h-[380px] flex items-center justify-center transition-transform hover:shadow-md cursor-pointer group"
                                 >
                                     <button
                                         onClick={(e) => {
                                             e.stopPropagation(); 
                                             toggleFavorite(item.id);
                                         }}
-                                        className="absolute top-4 right-4 z-10 p-2 bg-white rounded-full shadow-sm"
+                                        className="absolute top-3 right-3 z-10 p-2 bg-white rounded-full shadow-sm"
                                     >
                                         <svg
-                                            width="20" height="20" viewBox="0 0 24 24"
+                                            width="18" height="18" viewBox="0 0 24 24"
                                             fill={favorites.includes(item.id) ? "black" : "none"}
                                             stroke="black" strokeWidth="2"
                                         >
@@ -95,7 +103,7 @@ const Card = () => {
                                     </button>
 
                                     {item.discount && (
-                                        <span className="absolute bottom-4 left-4 bg-[#FF5C5C] text-white text-xs font-bold px-2 py-1 rounded-sm">
+                                        <span className="absolute bottom-3 left-3 bg-[#FF5C5C] text-white text-[10px] font-bold px-2 py-1 rounded-sm">
                                             {item.discount}
                                         </span>
                                     )}
@@ -103,15 +111,15 @@ const Card = () => {
                                     <img src={item.img} alt={item.title} className="max-h-full w-auto object-contain transition-transform group-hover:scale-105" />
                                 </div>
 
-                                <div className="mt-5 space-y-1 cursor-pointer" onClick={() => setSelectedProduct(item)}>
-                                    <h3 className="font-bold text-lg text-[#1A1A1A]">{item.brand}</h3>
-                                    <p className="text-gray-500 text-sm truncate">{item.title}</p>
-                                    <div className="flex gap-3 items-center pt-1">
-                                        <span className={`font-bold text-lg ${item.discount ? 'text-[#FF5C5C]' : 'text-[#1A1A1A]'}`}>
+                                <div className="mt-4 sm:mt-5 space-y-1 cursor-pointer" onClick={() => setSelectedProduct(item)}>
+                                    <h3 className="font-bold text-base sm:text-lg text-[#1A1A1A]">{item.brand}</h3>
+                                    <p className="text-gray-500 text-xs sm:text-sm truncate">{item.title}</p>
+                                    <div className="flex gap-2 sm:gap-3 items-center pt-1">
+                                        <span className={`font-bold text-base sm:text-lg ${item.discount ? 'text-[#FF5C5C]' : 'text-[#1A1A1A]'}`}>
                                             {item.price}
                                         </span>
                                         {item.oldPrice && (
-                                            <span className="text-gray-400 line-through text-sm">{item.oldPrice}</span>
+                                            <span className="text-gray-400 line-through text-xs sm:text-sm">{item.oldPrice}</span>
                                         )}
                                     </div>
                                 </div>
@@ -123,140 +131,131 @@ const Card = () => {
                 <button
                     onClick={nextSlide}
                     disabled={currentIndex >= products.length - visibleCards}
-                    className={`absolute -right-12 top-1/2 -translate-y-1/2 z-20 p-2 transition-all 
+                    className={`absolute -right-2 sm:-right-12 top-1/2 -translate-y-1/2 z-20 p-2 transition-all 
                     ${currentIndex >= products.length - visibleCards ? 'opacity-0 pointer-events-none' : 'opacity-100 hover:scale-110'}`}
                 >
-                    <svg width="30" height="50" viewBox="0 0 24 44" fill="none" className="stroke-black">
+                    <svg width="24" height="40" viewBox="0 0 24 44" fill="none" className="stroke-black">
                         <path d="M2 2L22 22L2 42" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                 </button>
             </div>
-{selectedProduct && (
-    <div className="fixed inset-0 bg-white z-[200] overflow-y-auto animate-in slide-in-from-right duration-500">
-        <div className="max-w-[1440px] mx-auto min-h-screen relative flex flex-col">
-            <div className="sticky top-0 bg-white/90 backdrop-blur-md z-[210] px-6 py-4 flex items-center border-b border-blue-100">
-                <button 
-                    onClick={() => setSelectedProduct(null)}
-                    className="group flex items-center gap-2 text-blue-600 hover:text-blue-800 transition-all"
-                >
-                    <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-all">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                            <path d="M19 12H5M12 19l-7-7 7-7" />
-                        </svg>
-                    </div>
-                    <span className="font-bold uppercase tracking-widest text-xs">Назад в каталог</span>
-                </button>
-                
-                <div className="ml-auto flex items-center gap-6">
-                    <span className="text-sm font-black italic tracking-tighter text-2xl text-blue-600">LIB TECH</span>
-                    <button className="p-2 text-blue-600 hover:bg-blue-50 rounded-full transition-all">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
 
-            <div className="flex-1 flex flex-col lg:flex-row">
-                {/* Сол тарап: Сүрөт бөлүмү */}
-                <div className="lg:w-3/5 p-6 lg:p-12 flex flex-col items-center gap-8 bg-blue-50/30">
-                    <div className="w-full flex justify-center items-center relative min-h-[400px] lg:min-h-[600px]">
-                        <div className="bg-white rounded-3xl p-6 lg:p-10 relative shadow-sm border border-blue-100 flex items-center justify-center w-full max-w-md mx-auto">
-                            <img 
-                                src={selectedProduct.img} 
-                                alt={selectedProduct.title} 
-                                className="max-h-[450px] lg:max-h-[550px] w-auto object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-700" 
-                            />
-                            
-                            {selectedProduct.discount && (
-                                <div className="absolute top-4 left-4 bg-blue-600 text-white w-16 h-16 rounded-full flex items-center justify-center font-black text-lg rotate-12 shadow-xl border-4 border-white z-10">
-                                    {selectedProduct.discount}
+            {selectedProduct && (
+                <div className="fixed inset-0 bg-white z-[200] overflow-y-auto">
+                    <div className="max-w-[1440px] mx-auto min-h-screen relative flex flex-col">
+                        <div className="sticky top-0 bg-white/90 backdrop-blur-md z-[210] px-4 sm:px-6 py-4 flex items-center border-b border-blue-100">
+                            <button 
+                                onClick={() => setSelectedProduct(null)}
+                                className="group flex items-center gap-2 text-blue-600"
+                            >
+                                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-blue-50 flex items-center justify-center">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                                        <path d="M19 12H5M12 19l-7-7 7-7" />
+                                    </svg>
                                 </div>
-                            )}
-                        </div>
-                    </div>
-
-                    {/* Кичинекей сүрөттөр (thumbnails) */}
-                    <div className="flex gap-4 overflow-x-auto pb-4 w-full justify-center">
-                        {[1, 2, 3, 4, 5].map((i) => (
-                            <div key={i} className="min-w-[100px] h-[120px] bg-white rounded-2xl p-2 border border-blue-100 cursor-pointer hover:border-blue-600 transition-all shadow-sm">
-                                <img src={selectedProduct.img} alt="thumb" className="w-full h-full object-contain" />
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Оң тарап: Маалымат бөлүмү */}
-                <div className="lg:w-2/5 p-6 lg:p-16 flex flex-col bg-white">
-                    <div className="mb-10">
-                        <div className="flex items-center gap-3 mb-4">
-                            <span className="bg-blue-600 text-white px-3 py-1 text-[10px] font-bold uppercase tracking-tighter">New Collection</span>
-                            <div className="flex text-blue-400 text-sm">★★★★★ <span className="text-blue-300 ml-2">(42 отзыва)</span></div>
-                        </div>
-                        <h1 className="text-4xl lg:text-5xl font-black uppercase leading-none tracking-tighter text-blue-900 mb-6">
-                            {selectedProduct.title}
-                        </h1>
-                        <p className="text-blue-400 text-sm leading-relaxed max-w-md">
-                            Профессиональный сноуборд для фристайла и паудера. Технология Magne-Traction обеспечивает невероятный контроль кантов в любых условиях.
-                        </p>
-                    </div>
-
-                    <div className="flex items-center gap-6 mb-12">
-                        <div className="flex flex-col">
-                            <span className="text-sm text-blue-300 font-bold uppercase tracking-widest">Цена:</span>
-                            <span className="text-5xl font-black text-blue-600 tracking-tighter">{selectedProduct.price}</span>
-                        </div>
-                        {selectedProduct.oldPrice && (
-                            <div className="flex flex-col opacity-40">
-                                <span className="text-sm font-bold uppercase tracking-widest text-blue-300">Раньше:</span>
-                                <span className="text-2xl font-bold line-through text-blue-900">{selectedProduct.oldPrice}</span>
-                            </div>
-                        )}
-                    </div>
-
-                    <div className="space-y-10 mb-12">
-                        <div>
-                            <p className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-400 mb-4">Выберите размер (ростовка)</p>
-                            <div className="grid grid-cols-4 gap-3">
-                                {['152', '155', '158', '161W'].map((size, i) => (
-                                    <button key={i} className={`py-4 rounded-xl font-bold border-2 transition-all ${size === '158' ? 'bg-blue-600 text-white border-blue-600 shadow-lg scale-105' : 'border-blue-50 text-blue-600 hover:border-blue-600'}`}>
-                                        {size}
-                                    </button>
-                                ))}
-                            </div>
-                        </div>
-
-                        <div className="flex flex-col gap-4">
-                            <button className="w-full bg-blue-600 text-white py-6 rounded-2xl text-xl font-black uppercase tracking-widest hover:bg-blue-700 transition-all hover:shadow-[0_20px_40px_rgba(37,99,235,0.3)] active:scale-95">
-                                Добавить в корзину
+                                <span className="font-bold uppercase tracking-widest text-[10px] sm:text-xs">Назад</span>
                             </button>
+                            
+                            <div className="ml-auto flex items-center gap-4 sm:gap-6">
+                                <span className="text-lg sm:text-2xl font-black italic text-blue-600">LIB TECH</span>
+                            </div>
                         </div>
-                    </div>
 
-                    <div className="grid grid-cols-2 gap-6 pt-10 border-t border-blue-50">
-                        <div className="flex flex-col gap-2">
-                            <span className="text-[10px] font-black text-blue-300 uppercase tracking-widest">Доставка</span>
-                            <p className="text-sm font-bold text-blue-600 italic">Бесплатно по РФ</p>
-                        </div>
-                        <div className="flex flex-col gap-2">
-                            <span className="text-[10px] font-black text-blue-300 uppercase tracking-widest">Гарантия</span>
-                            <p className="text-sm font-bold text-blue-600 italic">2 года от производителя</p>
+                        <div className="flex-1 flex flex-col lg:flex-row">
+                            <div className="lg:w-3/5 p-4 sm:p-6 lg:p-12 flex flex-col items-center gap-6 lg:gap-8 bg-blue-50/30">
+                                <div className="w-full flex justify-center items-center relative min-h-[300px] lg:min-h-[600px]">
+                                    <div className="bg-white rounded-2xl sm:rounded-3xl p-4 lg:p-10 relative shadow-sm border border-blue-100 flex items-center justify-center w-full max-w-md mx-auto">
+                                        <img 
+                                            src={selectedProduct.img} 
+                                            alt={selectedProduct.title} 
+                                            className="max-h-[350px] lg:max-h-[550px] w-auto object-contain drop-shadow-2xl" 
+                                        />
+                                        {selectedProduct.discount && (
+                                            <div className="absolute top-2 left-2 sm:top-4 sm:left-4 bg-blue-600 text-white w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center font-black text-sm sm:text-lg rotate-12 shadow-xl border-2 sm:border-4 border-white z-10">
+                                                {selectedProduct.discount}
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+
+                                <div className="flex gap-2 sm:gap-4 overflow-x-auto pb-4 w-full justify-start lg:justify-center px-4">
+                                    {[1, 2, 3].map((i) => (
+                                        <div key={i} className="min-w-[80px] sm:min-w-[100px] h-[100px] sm:h-[120px] bg-white rounded-xl p-2 border border-blue-100 shadow-sm">
+                                            <img src={selectedProduct.img} alt="thumb" className="w-full h-full object-contain" />
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div className="lg:w-2/5 p-6 lg:p-16 flex flex-col bg-white">
+                                <div className="mb-6 lg:mb-10">
+                                    <div className="flex items-center gap-3 mb-4">
+                                        <span className="bg-blue-600 text-white px-2 py-1 text-[8px] sm:text-[10px] font-bold uppercase">New Collection</span>
+                                        <div className="flex text-blue-400 text-xs sm:text-sm">★★★★★</div>
+                                    </div>
+                                    <h1 className="text-2xl sm:text-3xl lg:text-5xl font-black uppercase leading-tight text-blue-900 mb-4 sm:mb-6">
+                                        {selectedProduct.title}
+                                    </h1>
+                                    <p className="text-blue-400 text-xs sm:text-sm leading-relaxed max-w-md">
+                                        Профессиональный сноуборд для фристайла и паудера. Технология Magne-Traction обеспечивает контроль кантов.
+                                    </p>
+                                </div>
+
+                                <div className="flex items-center gap-4 sm:gap-6 mb-8 lg:mb-12">
+                                    <div className="flex flex-col">
+                                        <span className="text-[10px] text-blue-300 font-bold uppercase">Цена:</span>
+                                        <span className="text-3xl sm:text-5xl font-black text-blue-600 tracking-tighter">{selectedProduct.price}</span>
+                                    </div>
+                                    {selectedProduct.oldPrice && (
+                                        <div className="flex flex-col opacity-40">
+                                            <span className="text-[10px] font-bold uppercase text-blue-300">Раньше:</span>
+                                            <span className="text-lg sm:text-2xl font-bold line-through text-blue-900">{selectedProduct.oldPrice}</span>
+                                        </div>
+                                    )}
+                                </div>
+
+                                <div className="space-y-6 sm:space-y-10 mb-8 lg:mb-12">
+                                    <div>
+                                        <p className="text-[10px] font-black uppercase tracking-widest text-blue-400 mb-4">Размер (ростовка)</p>
+                                        <div className="grid grid-cols-4 gap-2 sm:gap-3">
+                                            {['152', '155', '158', '161W'].map((size, i) => (
+                                                <button key={i} className={`py-3 sm:py-4 rounded-xl font-bold border-2 text-xs sm:text-base ${size === '158' ? 'bg-blue-600 text-white border-blue-600' : 'border-blue-50 text-blue-600'}`}>
+                                                    {size}
+                                                </button>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    <button className="w-full bg-blue-600 text-white py-4 sm:py-6 rounded-2xl text-base sm:text-xl font-black uppercase tracking-widest active:scale-95 transition-all">
+                                        Добавить в корзину
+                                    </button>
+                                </div>
+
+                                <div className="grid grid-cols-2 gap-4 pt-6 border-t border-blue-50">
+                                    <div className="flex flex-col">
+                                        <span className="text-[8px] sm:text-[10px] font-black text-blue-300 uppercase">Доставка</span>
+                                        <p className="text-xs sm:text-sm font-bold text-blue-600">Бесплатно</p>
+                                    </div>
+                                    <div className="flex flex-col">
+                                        <span className="text-[8px] sm:text-[10px] font-black text-blue-300 uppercase">Гарантия</span>
+                                        <p className="text-xs sm:text-sm font-bold text-blue-600">2 года</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-)}  
-            <div className="flex justify-center mt-16">
-                <Link to="/catalog"> 
-                <button className="bg-blue-500 rounded-2xl text-white px-16 py-4 font-bold uppercase tracking-[0.2em] hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-200 transition-all active:scale-95">
-            Показать больше
-        </button>
+            )}  
+
+            <div className="flex justify-center mt-10 lg:mt-16">
+                <Link to="/catalog" className="w-full sm:w-auto px-4"> 
+                    <button className="w-full sm:w-auto bg-blue-500 rounded-2xl text-white px-8 lg:px-16 py-3 lg:py-4 font-bold uppercase tracking-widest text-xs sm:text-base hover:bg-blue-700 active:scale-95 transition-all">
+                        Показать больше
+                    </button>
                 </Link>
             </div>
         </section>
     );
 };
 
-export default Card;
+export default Card;    
