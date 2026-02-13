@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import Logo from '../../img/Group.svg';
 import { Link } from 'react-router-dom';
-import { Heart, ShoppingCart, Menu, X } from 'lucide-react'; // Menu жана X кошулду
+import { Heart, ShoppingCart, Menu, X } from 'lucide-react';
 
 function Header() {
-  const [isOpen, setIsOpen] = useState(false); // Менюнун абалы
+  const [isOpen, setIsOpen] = useState(false); 
 
   return (
     <header className="bg-white shadow-sm relative">
@@ -18,8 +18,6 @@ function Header() {
             />
           </Link>
         </div>
-
-        {/* --- DESKTOP NAVIGATION --- */}
         <div className="hidden lg:flex gap-16 font-medium text-gray-700 items-center">
           <Link to="/resorts" className="hover:text-blue-600 transition">
             Курорт
@@ -50,7 +48,6 @@ function Header() {
           </div>
         </div>
 
-        {/* --- MOBILE CONTROLS (Бургер жана Иконкалар) --- */}
         <div className="flex lg:hidden items-center gap-4 text-black">
           <Link to="/favorites">
             <Heart size={20} fill="currentColor" />
@@ -64,7 +61,6 @@ function Header() {
         </div>
       </div>
 
-      {/* --- MOBILE DROPDOWN MENU --- */}
       {isOpen && (
         <div className="lg:hidden absolute top-full left-0 w-full bg-white shadow-lg z-50 border-t flex flex-col p-6 gap-4 font-medium text-gray-700">
           <Link to="/resorts" onClick={() => setIsOpen(false)} className="hover:text-blue-600 py-2 border-b">
