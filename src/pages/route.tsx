@@ -17,6 +17,7 @@ import Accommodation from "../pages/landing/pages/accommodation/Accommodation.ts
 
 import { Favorites } from "./landing/ui/favorites/Favorites.tsx";
 import Cart from "./landing/ui/cart/Cart.tsx";
+import Poster from "./landing/ui/poster/Poster.tsx";
 export const Router = {    
         path: "",
         element: <>

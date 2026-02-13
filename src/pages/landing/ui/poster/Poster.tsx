@@ -9,6 +9,7 @@ function Poster() {
                 Афиша
             </h2>
             
+            
             <div className='flex flex-col md:flex-row mt-6 sm:mt-10 gap-4 md:justify-between items-center'>
                 <div className='w-full md:w-auto'>
                     <img className='w-full h-auto md:h-80 lg:h-105 object-cover rounded-xl' src={post1} alt="" />
@@ -19,7 +20,7 @@ function Poster() {
             </div>
 
             <div className='flex mt-7 sm:mt-10 justify-center'>
-                <Link to="/poster" className='w-full sm:w-auto text-center'>
+                <Link to="/events" className='w-full sm:w-auto text-center'>
                     <button className='w-full sm:w-auto bg-blue-500 text-white p-3 sm:p-4 rounded-lg px-10 hover:bg-blue-600 transition-all active:scale-95 font-medium'>
                         Посмотреть все
                     </button>
