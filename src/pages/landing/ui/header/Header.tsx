@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Logo from '../../img/Group.svg';
 import { Link } from 'react-router-dom';
 import { Heart, ShoppingCart, Menu, X } from 'lucide-react';

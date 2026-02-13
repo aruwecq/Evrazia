@@ -9,11 +9,12 @@ import { Kurort1 } from "./landing/ui/kurort1/Kurort1";
 import { Tarif } from "./landing/ui/tarif/Tarif";
 import { Trassa } from "./landing/ui/trassa/Trassa";
 import { Vacansi } from "./landing/ui/vacansi/Vacansi";
-import {Gornye} from './landing/ui/gornye/Gornye'
+import { Gornye } from './landing/ui/gornye/Gornye'
 import Hotel from "../pages/landing/pages/Hotel/Hotel.tsx";
 import Guest from "../pages/landing/pages/Hotel/Guest.tsx";
 import Hotel2 from "../pages/landing/pages/Hotel/Hotel2.tsx";
 import Accommodation from "../pages/landing/pages/accommodation/Accommodation.tsx";
+
 import { Favorites } from "./landing/ui/favorites/Favorites.tsx";
 import Cart from "./landing/ui/cart/Cart.tsx";
 export const Router = {    
@@ -90,3 +91,4 @@ export const Router = {
               },
         ]
     } 
+
